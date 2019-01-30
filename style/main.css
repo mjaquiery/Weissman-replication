@@ -1,0 +1,303 @@
+* {
+    box-sizing: border-box;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+:root {
+    --color-half-grey: #6A6A6A;
+    --color-light-grey: #7F7F7F;
+    --color-instructions-background: aliceblue;
+}
+.hidden {
+    display: none !important;
+}
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--color-half-grey);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-link a {
+    padding: .5em;
+    color: inherit;
+}
+.contact-link a:hover {
+    text-decoration: none;
+}
+
+/* thanks: http://www.jimmyscode.com/css-styling-for-kbd-tags/ */
+kbd {
+    padding:0.1em 0.6em;
+    border:1px solid #ccc;
+    font-size:11px;
+    font-family:monospace;
+    background-color:#f7f7f7;
+    color:#333;
+    -moz-box-shadow:0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
+    -webkit-box-shadow:0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
+    box-shadow:0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    display:inline-block;
+    margin:0 0.1em;
+    text-shadow:0 1px 0 #fff;
+    line-height:1.4;
+    white-space:nowrap;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+#Content > div:not(#Experiment) {
+    max-width: 1000px;
+    max-height: 95vh;
+    overflow-y: auto;
+}
+
+.note {
+    font-size: .8em;
+    font-style: italic;
+    text-align: right;
+    margin: 0;
+}
+
+#Demographics form > div > div {
+    margin: .5em 0;
+}
+#Demographics form > div > div > * {
+    width: 100%;
+    height: 2em;
+    font-size: 1.2em;
+    padding: 0 .5em;
+}
+
+option[value="blank"] {
+    font-style: italic;
+    color: var(--color-light-grey);
+}
+
+.instructions {
+    width: fit-content;
+    max-width: 90%;
+    margin: auto;
+    text-align: justify;
+    background: var(--color-instructions-background);
+    padding: 1em;
+    border-radius: 1em;
+    box-shadow: 0 0 7px 2px #bcc9d4;
+}
+
+.instructions h1 {
+    text-align: center;
+}
+
+.instructions button {
+    width: 100%;
+    padding: .5em;
+    margin-top: 1em;
+    cursor: pointer;
+}
+
+.consent-check {
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.consent-check input {
+    transform: scale(2);
+    cursor: pointer;
+    margin-right: 1.5em;
+}
+
+.consent-check p {
+    margin: 0;
+}
+
+.contact-link {
+    text-align: center;
+}
+
+.row {
+    display: inline-flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.response-map * {
+    vertical-align: middle;
+}
+
+.response-map kbd {
+    font-size: 0.6em;
+}
+
+.response-table {
+    display: table;
+    margin: auto;
+}
+.response-table > div {
+    display: table-row;
+    padding: .2em 0;
+}
+.response-table > div.labels > div {
+    text-transform: capitalize;
+    font-weight: bold;
+}
+.response-table > div > div {
+    display: table-cell;
+    text-transform: uppercase;
+    padding: 0 1em;
+}
+.response-table > div > div:first-of-type {
+    padding: .2em;
+    text-transform: none;
+}
+.response-table > div > div:last-of-type {
+    text-transform: capitalize;
+}
+
+tr:first-of-type td {
+    font-weight: bold;
+}
+
+#Hint {
+    position: fixed;
+    top: 5px;
+    left: 5px;
+}
+#Hint table {
+    padding: 1em;
+    background-color: var(--color-instructions-background);
+    border-radius: 1em;
+    box-shadow: 0 3px 4px 2px black;
+}
+#Hint table td:first-of-type {
+    padding-right: 1em;
+    line-height: 1.5em;
+}
+
+#Feedback table {
+    text-align: right;
+}
+#Feedback td {
+    padding: .2em;
+}
+#Feedback tr:hover:not(:first-of-type) td {
+    background-color: deepskyblue !important;
+}
+#Feedback table td:nth-child(2n) {
+    background-color: gainsboro;
+}
+
+/* Experiment stimuli styles */
+#Stimulus {
+    font-size: 36px;
+    font-family: arial, sans-serif;
+    text-transform: uppercase;
+}
+
+:root{
+    --stimulus-red: #CC1204;
+    --stimulus-green: #199100;
+    --stimulus-blue: #0006cc;
+    --stimulus-yellow: #dee223;
+}
+
+#Stimulus.primeprobe, #Stimulus.flanker, #Stimulus.stroop, #Stimulus.countdown, #Stimulus.feedback {
+    width: 100%;
+    text-align: center;
+}
+
+#Stimulus.primeprobe, #Stimulus.flanker, #Stimulus.countdown, #Stimulus.feedback {
+    color: #cccccc;
+}
+
+#Stimulus.primeprobe.prime {
+    font-size: 48px;
+}
+
+#Stimulus.primeprobe.probe {
+    font-size: 77px;
+}
+
+#Stimulus.flanker {
+    font-family: "Lucida Console", Monaco, monospace;
+    letter-spacing: 1px;
+    font-size: 60px;
+}
+
+#Stimulus.stroop {
+    font-size: 72px;
+}
+
+#Stimulus.simon {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
+.stroop.red {
+    color: var(--stimulus-red);
+}
+.stroop.green {
+    color: var(--stimulus-green);
+}
+.stroop.blue {
+    color: var(--stimulus-blue);
+}
+.stroop.yellow {
+    color: var(--stimulus-yellow);
+}
+
+.simon.red {
+    background-color: var(--stimulus-red);
+}
+.simon.green {
+    background-color: var(--stimulus-green);
+}
+.simon.blue {
+    background-color: var(--stimulus-blue);
+}
+.simon.yellow {
+    background-color: var(--stimulus-yellow);
+}
+
+.simon.up {
+    top: 5vh;
+    left: calc(50% - 50px);
+}
+.simon.left {
+    left: calc((((100vw - 100vh) / 2) + 5vh) - 50px);
+    top: calc(50% - 50px);
+}
+.simon.down {
+    bottom: 5vh;
+    left: calc(50% - 50px);
+}
+.simon.right {
+    right: calc((((100vw - 100vh) / 2) + 5vh) - 50px);
+    top: calc(50% - 50px);
+}
+.simon.up.portrait {
+    top: calc((((100vh - 100vw) / 2) + 5vw) - 50px);
+    left: calc(50% - 50px);
+}
+.simon.left.portrait {
+    left: 5vw;
+    top: calc(50% - 50px);
+}
+.simon.down.portrait {
+    bottom: calc((((100vh - 100vw) / 2) + 5vw) - 50px);
+    left: calc(50% - 50px);
+}
+.simon.right.portrait {
+    right: 5vw;
+    top: calc(50% - 50px);
+}
+

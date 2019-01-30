@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weissman Replication Experiment</title>
+    <link rel="stylesheet" href="style/main.css"/>
+    <script src="locale/localization.js"></script>
+    <script src="src/core.js"></script>
+    <script src="src/misc.js"></script>
+    <script src="src/config.js"></script>
+    <script type="text/javascript">
+        /*
+
+        TODO: Add JSON email as backup for data save error?
+            * Will data security ethics allow emailing participant platform IDs?
+        TODO: Localisation strings for CZ, HUN
+        TODO: Instruction finalisation
+        TODO: Check cross-browser compatability
+        TODO: Contact email addresses
+        TODO: Triple-check implementation matches
+        TODO: Participants get paid if data save error occurs?
+
+        Notes:
+            All tasks:
+                * trial type is determined using an algorithm that tends towards balancing the spread of types
+
+            Flanker:
+                * Stimuli would be more balanced if we used a fixed-width font
+
+            Flanker, Stoop, Simon:
+                * Unlimited response time
+
+            Primeprobe:
+                * Trials always 2s long, including ITI.
+         */
+
+        // This 'experiment' variable contains the data for the whole experiment.
+        // The structure below is representative of the end product.
+        // The trials variable will contain a 2d array with the first row holding variable headers and each subsequent row
+        // holding the variable values for an individual trial. These headers are experiment-specific and set in
+        // setupExperiment() [src/core.js]
+        const X = {
+            uid: null,
+            platform: '',
+            trialNum: 0,
+            loc: '',
+            type: '',
+            trials: [],
+            eventLog: [],
+            log: function(s) {this.eventLog.push("" + now().toString() + ": " + s);},
+            demographics: {},
+            debrief: {},
+            consented: false,
+            responseMap: null,
+            responseOpen: false,
+            responseTimeout: null
+        };
+
+        X.log("Initialized");
+
+        // Parse the input string for experiment name, locale, userId, and other information
+        let search = splitSearch(window.location.search);
+        X.uid = search.uid;
+        X.loc = search.loc;
+        X.type = search.name;
+        X.debug = typeof search.debug === 'undefined'? false : search.debug == true;
+
+    </script>
+</head>
+<body tabindex="0">
+<section class="Container">
+    <div id="Progress"></div>
+    <div id="Content">
+        <div id="Loading">
+            <div class="instructions">
+                <h1>Loading...</h1>
+                <p>If you continue to see this message after a couple of seconds something has gone wrong. In order to run properly the experiment requires a modern browser with javascript enabled.</p>
+            </div>
+        </div>
+        <div id="Consent" class="instructions hidden">
+            <h1>S::g_c_title</h1>
+            <p>S::g_c_about</p>
+            <p>S::g_c_overview</p>
+            <p>S::g_c_content</p>
+            <div class="consent-check">
+                <input type="checkbox" onchange="checkConsent()"/>
+                <p>S::g_c_checkbox</p>
+            </div>
+            <h1>S::g_c_volition</h1>
+            <p>S::g_c_quit</p>
+            <p>S::g_c_compensation</p>
+            <p>S::g_c_incomplete</p>
+            <p>S::g_c_policy</p>
+            <p>S::g_c_confidentiality</p>
+            <p>S::g_c_risks</p>
+            <p>S::g_c_contact</p>
+            <p>S::g_c_email_PI</p>
+            <p class="contact-link"><a href="S::g_c_email_pi_href">S::g_c_email_pi_display</a></p>
+            <p>S::g_c_email_EC</p>
+            <p class="contact-link"><a href="S::g_c_email_ec_href">S::g_c_email_ec_display</a></p>
+            <div class="consent-check">
+                <--input type="checkbox" onchange="checkConsent()"/!-->
+                <p>S::g_c_agree</p>
+            </div>
+        </div>
+        <div id="Demographics" class="instructions hidden">
+            <h1>S::g_d_title</h1>
+            <p class="note">S::g_d_optional</p>
+            <form>
+                <div>
+                    <div>
+                        <select name="gender">
+                            <option value="blank">S::g_d_gender</option>
+                            <option value="refused">S::g_g_rather_not_say</option>
+                            <option value="other">S::g_d_gender_other</option>
+                            <option value="male">S::g_d_gender_m</option>
+                            <option value="female">S::g_d_gender_f</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input name="age" type="text" placeholder="S::g_d_age"/>
+                    </div>
+                    <div>
+                        <select name="education">
+                            <option value="blank">S::g_d_education</option>
+                            <option value="refused">S::g_g_rather_not_say</option>
+                            <option value="primary">S::g_d_education_primary</option>
+                            <option value="secondary">S::g_d_education_secondary</option>
+                            <option value="undergrad">S::g_d_education_undergrad</option>
+                            <option value="postgrad">S::g_d_education_postgrad</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <button onclick="recordDemographics()">S::g_g_continue</button>
+        </div>
+        <div id="Instructions" class="instructions hidden">
+            <div id="InstructionsPRIMEPROBE">
+                <h1>S::g_i_title</h1>
+                <p>S::p_i_overview</p>
+                <div class="row">
+                    <div>I::p_ex1</div>
+                    <div>I::p_ex2</div>
+                </div>
+                <p>S::p_i_detail</p>
+                <p>S::p_i_responses</p>
+                <div class="response-table">
+                    <div class="labels">
+                        <div>Response</div>
+                        <div>Stimulus</div>
+                        <div>Finger</div>
+                    </div>
+                    <div>
+                        <div><kbd>K::f</kbd></div>
+                        <div>S::g_s_left</div>
+                        <div>S::g_f_left_middle</div>
+                    </div>
+                    <div>
+                        <div><kbd>K::g</kbd></div>
+                        <div>S::g_s_right</div>
+                        <div>S::g_f_left_index</div>
+                    </div>
+                    <div>
+                        <div><kbd>K::j</kbd></div>
+                        <div>S::g_s_up</div>
+                        <div>S::g_f_right_middle</div>
+                    </div>
+                    <div>
+                        <div><kbd>K::n</kbd></div>
+                        <div>S::g_s_down</div>
+                        <div>S::g_f_left_index</div>
+                    </div>
+                </div>
+                <p>S::p_i_practice</p>
+                <p>S::g_i_accuracy70</p>
+            </div>
+            <div id="InstructionsFLANKER">
+                <h1>S::g_i_title</h1>
+                <p>S::f_i_overview</p>
+                <div class="row">
+                    <img src="assets/flanker/Example1.jpg"/>
+                    <img src="assets/flanker/Example2.jpg"/>
+                </div>
+                <p>S::f_i_responses</p>
+                <div class="row">
+                    <div>I::f_keyboard</div>
+                    <div class="response-table">
+                        <div class="labels">
+                            <div>Response</div>
+                            <div>Finger</div>
+                        </div>
+                        <div>
+                            <div><kbd>K::z</kbd></div>
+                            <div>S::g_f_left_middle</div>
+                        </div>
+                        <div>
+                            <div><kbd>K::x</kbd></div>
+                            <div>S::g_f_left_index</div>
+                        </div>
+                        <div>
+                            <div><kbd>K::m</kbd></div>
+                            <div>S::g_f_right_middle</div>
+                        </div>
+                        <div>
+                            <div><kbd>K::n</kbd></div>
+                            <div>S::g_f_left_index</div>
+                        </div>
+                    </div>
+                </div>
+                <p>S::g_i_accuracy70</p>
+            </div>
+            <div id="InstructionsSIMON">
+                <h1>S::g_i_title</h1>
+                <p>S::i_i_overview</p>
+                <div class="row">
+                    <img src="assets/simon/Example1.jpg"/>
+                    <img src="assets/simon/Example2.jpg"/>
+                </div>
+                <p>S::i_i_detail</p>
+                <p>S::i_i_keymap</p>
+                <div class="row">
+                    <img src="assets/simon/Keyboard2.JPG"/>
+                </div>
+                <p>S::i_i_duration</p>
+                <p>S::g_i_accuracy70</p>
+            </div>
+            <div id="InstructionsSTROOP">
+                <h1>S::g_i_title</h1>
+                <p>S::s_i_overview</p>
+                <div class="row">
+                    <div>I::s_ex1</div>
+                    <div>I::s_ex2</div>
+                </div>
+                <p>S::s_i_detail</p>
+                <img src="assets/stroop/Keyboard.png"/>
+                <p>S::s_i_duration</p>
+                <p>S::g_i_accuracy70</p>
+            </div>
+            <button onclick="practiceInstructions()">S::g_g_continue</button>
+        </div>
+        <div id="Practice" class="instructions hidden">
+            <h1>S::g_p_title</h1>
+            <button onclick="runExperiment()">S::g_g_practice</button>
+        </div>
+        <div id="BlockBreak" class="instructions hidden">
+            <h1>S::g_g_block_end</h1>
+            <p>S::g_g_block_break</p>
+            <button onclick="runTrial()">S::g_g_continue</button>
+        </div>
+        <div id="EndPractice" class="instructions hidden">
+            <h1>S::g_p_end</h1>
+            <button onclick="runTrial()">S::g_g_continue</button>
+        </div>
+        <div id="Experiment" class="hidden">
+            <div id="Stimulus" class="countdown"></div>
+        </div>
+        <div id="Debrief" class="instructions hidden">
+            <div>
+                <textarea id="CommentsGeneral" placeholder="S::g_g_general"></textarea>
+                <button onclick="recordDebriefResponse()">S::g_g_end</button>
+            </div>
+        </div>
+        <div id="Feedback" class="instructions hidden">
+            <h1>S::g_g_end_title</h1>
+            <div id="SaveStatus"></div>
+            <p>S::g_g_end_detail</p>
+            <p>S::g_g_end_contact</p>
+            <p class="contact-link"><a href="S::g_c_email_pi_href">S::g_c_email_pi_display</a></p>
+            <div id="Data"></div>
+        </div>
+        <div id="Error" class="instructions hidden">
+            <h1>S::g_e_title</h1>
+            <p>S::g_e_no_task_name</p>
+        </div>
+    </div>
+    <div id="Hint" class="hidden">
+    </div>
+</section>
+<script>
+    // Fill in localisation strings for the appropriate language and show the consent information
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('*').forEach((x)=> {
+            // This localisation approach is fine because we only care about text.
+            // Other localisation concerns, e.g. img alt text, is not needed here because accessibility requirements
+            // such as screen readers mean people cannot participate in the experiments anyway.
+
+            // Note that elements containing other elements will not be filled in this manner
+            // e.g. <p>S::g_g_continue <span>K::f</span></p> would have to be rewritten to enclose the loc_strings:
+            // <p><span>S::g_g_continue</span> <span>K::f</span></p>
+            if(/^I::[a-z0-9_]+$/i.test(x.innerHTML)) {
+                let src = I(x.innerHTML.substring(3));
+                x.innerHTML = "";
+                let img = x.appendChild(document.createElement('img'));
+                img.src = src;
+            }
+            else if(/^S::[a-z]_[a-z]_[a-z0-9_]+$/i.test(x.innerHTML))
+                x.innerHTML = S(x.innerText.substring(3));
+            else if(/^K::[a-z0-9]+$/i.test(x.innerHTML))
+                x.innerHTML = K(x.innerHTML.substring(3));
+            else if(/^KI::[a-z0-9_]+$/i.test(x.innerHTML))
+                x.innerHTML = KI(x.innerHTML.substring(4));
+
+            if(x instanceof HTMLAnchorElement) {
+                // Check for href substitution
+                if(/^S::[a-z]_[a-z]_[a-z0-9_]+$/i.test(x.href))
+                    x.href = S(x.href.substring(3));
+            }
+
+            if((x instanceof HTMLInputElement || x instanceof HTMLTextAreaElement)) {
+                // Do the same for placeholder properties
+                if(/^S::[a-z]_[a-z]_[a-z0-9_]+$/i.test(x.placeholder))
+                    x.placeholder = S(x.placeholder.substring(3));
+                else if(/^K::[a-z0-9]+$/i.test(x.placeholder))
+                    x.placeholder = K(x.placeholder.substring(3));
+                else if(/^KI::[a-z0-9_]+$/i.test(x.placeholder))
+                    x.placeholder = KI(x.placeholder.substring(4));
+            }
+        });
+
+        // Check experiment exists
+        if(typeof CFG[X.type] === 'undefined') {
+            showDiv('Error');
+            return;
+        }
+
+        showDiv('Consent');
+    });
+
+    /* Hereafter everything is chained through the user interface.
+    The basic structure is:
+    checkConsent -> setupExperiment -> runExperiment -> runTrial -> exportData -> showFeedback
+    All these functions can be found in the src/core.js file.
+     */
+
+</script>
+</body>
+</html>
