@@ -166,6 +166,30 @@ tr:first-of-type td {
     font-weight: bold;
 }
 
+textarea {
+    width: 100%;
+    margin: 0;
+}
+
+#CommentsGeneral {
+    min-height: 25vh;
+    min-width: 50vw;
+    font-size: 1.4em;
+}
+
+#Feedback table {
+    text-align: right;
+}
+#Feedback td {
+    padding: .2em;
+}
+#Feedback tr:hover:not(:first-of-type) td {
+    background-color: deepskyblue !important;
+}
+#Feedback table td:nth-child(2n) {
+    background-color: gainsboro;
+}
+
 #Hint {
     position: fixed;
     top: 5px;
