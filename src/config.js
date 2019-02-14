@@ -376,10 +376,6 @@ const CFG = {
                 X.trials[X.trialNum].stimColour,
                 X.trials[X.trialNum].stimLocation);
 
-            // Adjust values for portrait screens if necessary
-            if(window.innerWidth < window.innerHeight)
-                stimDiv.classList.add('portrait');
-
             X.trials[X.trialNum].stimOnset = now();
             X.responseOpen = true;
             // Responding is open for as long as necessary, except in debug mode

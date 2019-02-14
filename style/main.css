@@ -292,36 +292,42 @@ textarea {
     background-color: var(--stimulus-yellow);
 }
 
-.simon.up {
-    top: 5vh;
-    left: calc(50% - 50px);
+@media (orientation: landscape) {
+    .simon.up {
+        top: 5vh;
+        left: calc(50% - 50px);
+    }
+    .simon.left {
+        left: calc((((100vw - 100vh) / 2) + 5vh) - 50px);
+        top: calc(50% - 50px);
+    }
+    .simon.down {
+        bottom: 5vh;
+        left: calc(50% - 50px);
+    }
+    .simon.right {
+        right: calc((((100vw - 100vh) / 2) + 5vh) - 50px);
+        top: calc(50% - 50px);
+    }
 }
-.simon.left {
-    left: calc((((100vw - 100vh) / 2) + 5vh) - 50px);
-    top: calc(50% - 50px);
+
+@media (orientation: portrait) {
+    .simon.up {
+        top: calc((((100vh - 100vw) / 2) + 5vw) - 50px);
+        left: calc(50% - 50px);
+    }
+    .simon.left {
+        left: 5vw;
+        top: calc(50% - 50px);
+    }
+    .simon.down {
+        bottom: calc((((100vh - 100vw) / 2) + 5vw) - 50px);
+        left: calc(50% - 50px);
+    }
+    .simon.right {
+        right: 5vw;
+        top: calc(50% - 50px);
+    }
 }
-.simon.down {
-    bottom: 5vh;
-    left: calc(50% - 50px);
-}
-.simon.right {
-    right: calc((((100vw - 100vh) / 2) + 5vh) - 50px);
-    top: calc(50% - 50px);
-}
-.simon.up.portrait {
-    top: calc((((100vh - 100vw) / 2) + 5vw) - 50px);
-    left: calc(50% - 50px);
-}
-.simon.left.portrait {
-    left: 5vw;
-    top: calc(50% - 50px);
-}
-.simon.down.portrait {
-    bottom: calc((((100vh - 100vw) / 2) + 5vw) - 50px);
-    left: calc(50% - 50px);
-}
-.simon.right.portrait {
-    right: 5vw;
-    top: calc(50% - 50px);
-}
+
 
