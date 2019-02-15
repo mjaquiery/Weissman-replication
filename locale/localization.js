@@ -87,7 +87,7 @@ const LOC_KEYS = {
     'z': {
         'EN': 'z',
         'CZ': '',
-        'HUN': 'z'
+        'HUN': 'y'
     },
     'arrowdown': {
         'EN': 'ArrowDown',
@@ -131,12 +131,12 @@ const LOC_STRINGS = {
     'g_c_about': {
         'EN': "<strong>About the study</strong>: This study will investigate how you process information and make decisions.",
         'CZ': "",
-        'HUN': "<strong>A vizsgálat célja:</strong> A kutatás célja egy korábbi kísérlet megismétlése. A kísérlet azt kutatja, hogyan dolgozod fel az információkat és hozol döntéseket. A kísérlet körülbelül 16 percet vesz igénybe."
+        'HUN': "<strong>A vizsgálat célja:</strong> A kutatás célja egy korábbi kísérlet megismétlése. A kísérlet azt kutatja, hogyan dolgozod fel az információkat és hozol döntéseket."
     },
     'g_c_overview': {
         'EN': "Expect to spend an hour at most to complete this study. If you choose to take part in this study, you will be asked to participate in different types of tasks.",
         'CZ': "",
-        'HUN': ""
+        'HUN': "A kísérlet körülbelül 16 percet vesz igénybe."
     },
     'g_c_content': {
         'EN': "We may ask you to make decisions based on sounds (such as spoken words in English or non-speech sounds) or images or videos (such as faces, everyday objects, patterns, shapes, animals) that we will present to you. You may also be asked to fill out some questionnaires about your demographic information, attitudes and preferences regarding different types of decisions.",
@@ -151,7 +151,7 @@ const LOC_STRINGS = {
     'g_c_quit': {
         'EN': "This study is completely voluntary and you can withdraw from this study at any time by closing your Internet browser window.",
         'CZ': "",
-        'HUN': "A kutatásban való részvétel teljesen önkéntes. A vizsgálatot bármikor indoklás nélkül megszakíthatod, vagy a kérdések megválaszolását megtagadhatod."
+        'HUN': "A kutatásban való részvétel teljesen önkéntes. A vizsgálatot bármikor indoklás nélkül megszakíthatod, vagy a kérdések megválaszolását megtagadhatod a böngésző ablak bezárásával."
     },
     'g_c_compensation': {
         'EN': "<strong>Compensation</strong>: You will receive the amount of money indicated in the HIT description for your participation. We will screen your responses prior to compensation. ",
@@ -216,7 +216,7 @@ const LOC_STRINGS = {
     'g_c_checkbox': {
         'EN': "Please check the box to indicate your consent to participate in the study",
         'CZ': "",
-        'HUN': "Kérem, amennyiben egyetértesz a fenti feltételekkel, és hozzájárulsz a kutatásban való részvételhez, ezt a lenti gombra való kattintással igazold. Együttműködésedet előre is köszönjük!"
+        'HUN': "Kérem, amennyiben egyetértesz a fenti feltételekkel, és hozzájárulsz a kutatásban való részvételhez, ezt az állítás mellett megjelenő szürke mező kipipálásával igazold. Együttműködésedet előre is köszönjük!"
     },
     'g_c_agree': {
         'EN': "I agree to participate.",
@@ -261,7 +261,7 @@ const LOC_STRINGS = {
     'g_d_education_postgrad': {
         'EN': "Postgraduate or professional qualification",
         'CZ': "",
-        'HUN': "MA/MSc vagy nagasabb"
+        'HUN': "MA/MSc vagy magasabb"
     },
     'g_d_gender': {
         'EN': "Gender",
@@ -496,7 +496,7 @@ const LOC_STRINGS = {
     'f_i_overview': {
         'EN': "In this experiment, we are interested in how people resolve conflicts in the processing of visual stimuli. During this experiment, you will see strings of 7 letters presented in the center of the screen, as shown in the examples below.",
         'CZ': "",
-        'HUN': "Ebben a kísérletben arra vagyunk kíváncsiak, hogy az emberek hogyan oldanak fel a vizuális ingerek feldolgozása közben létrejövő konfliktusokat. A kísérlet alatt 7 betűből álló sorozatokat fogsz látni egymás után a képernyő közepén, ahogy a lenti példák is mutatják."
+        'HUN': "Ebben a kísérletben arra vagyunk kíváncsiak, hogy az emberek hogyan oldják fel a vizuális ingerek feldolgozása közben létrejövő ellentmondásokat. A kísérlet alatt 7 betűből álló sorozatokat fogsz látni egymás után a képernyő közepén, ahogy a lenti példák is mutatják."
     },
     'f_i_responses': {
         'EN': "For each string, your task is to identify the center letter, while ignoring the other letters. For example, the correct responses to the examples above are S and T, respectively. You will use the <kbd>z</kbd>, <kbd>x</kbd>, <kbd>n</kbd> and <kbd>m</kbd> keys for responses. You will learn the correspondence between the letters and the keys later in the practice session. Please respond as fast as possible while trying to avoid making mistakes.",
