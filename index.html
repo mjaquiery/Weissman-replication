@@ -104,7 +104,7 @@
         <div id="Demographics" class="instructions hidden">
             <h1>S::g_d_title</h1>
             <p class="note">S::g_d_optional</p>
-            <form>
+            <form onsubmit="recordDemographics()">
                 <div>
                     <div>
                         <select name="gender">
@@ -116,7 +116,7 @@
                         </select>
                     </div>
                     <div>
-                        <input name="age" type="text" placeholder="S::g_d_age"/>
+                        <input name="age" type="text" placeholder="S::g_d_age" onchange="numbersOnly()"/>
                     </div>
                     <div>
                         <select name="education">

@@ -266,29 +266,29 @@ textarea {
     height: 100px;
 }
 
-.stroop.red {
+.stroop.g_s_red {
     color: var(--stimulus-red);
 }
-.stroop.green {
+.stroop.g_s_green {
     color: var(--stimulus-green);
 }
-.stroop.blue {
+.stroop.g_s_blue {
     color: var(--stimulus-blue);
 }
-.stroop.yellow {
+.stroop.g_s_yellow {
     color: var(--stimulus-yellow);
 }
 
-.simon.red {
+.simon.g_s_red {
     background-color: var(--stimulus-red);
 }
-.simon.green {
+.simon.g_s_green {
     background-color: var(--stimulus-green);
 }
-.simon.blue {
+.simon.g_s_blue {
     background-color: var(--stimulus-blue);
 }
-.simon.yellow {
+.simon.g_s_yellow {
     background-color: var(--stimulus-yellow);
 }
 

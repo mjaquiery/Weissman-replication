@@ -129,9 +129,9 @@ const CFG = {
         stimDuration: 250,
         getResponseMap: function() {
             if(CFG.flanker.stimuli.length === 0)
-                CFG.flanker.stimuli = [S('g_s_M'), S('g_s_S'), S('g_s_T'), S('g_s_H')];
+                CFG.flanker.stimuli = ['g_s_M', 'g_s_S', 'g_s_T', 'g_s_H'];
             if(CFG.flanker.responseKeys.length === 0)
-                CFG.flanker.responseKeys = [K('m'), K('n'), K('x'), K('z')];
+                CFG.flanker.responseKeys = ['m', 'n', 'x', 'z'];
 
             // Flanker task uses randomised stimulus pairings
             let stim = shuffle(CFG.flanker.stimuli);
@@ -161,7 +161,7 @@ const CFG = {
                         typeCode: t,
                         block: b,
                         isPractice,
-                        responseTarget: X.responseMap[set[(t & 2) === 2? 1 : 0][t & 1]],
+                        responseTarget: K(X.responseMap[set[(t & 2) === 2? 1 : 0][t & 1]]),
                         isCongruent: (t & 4) === 4? 1 : 0,
                         stimOnset: null,
                         stimOffset: null,
@@ -169,8 +169,8 @@ const CFG = {
                         responseContent: null
                     };
                     let target = set[(t & 2) === 2? 1 : 0][t & 1];
-                    let flank = trial.isCongruent? target : set[(t & 2) === 2? 1 : 0][1-(t & 1)];
-                    trial.stimulus = flank.repeat(3) + target + flank.repeat(3);
+                    let flank = S(trial.isCongruent? target : set[(t & 2) === 2? 1 : 0][1-(t & 1)]);
+                    trial.stimulus = flank.repeat(3) + S(target) + flank.repeat(3);
                     trials.push(trial);
                 });
             }
@@ -208,9 +208,9 @@ const CFG = {
         probeDuration: 133,
         getResponseMap: function() {
             if(CFG.primeprobe.stimuli.length === 0)
-                CFG.primeprobe.stimuli = [S('g_s_left'), S('g_s_right'), S('g_s_up'), S('g_s_down')];
+                CFG.primeprobe.stimuli = ['g_s_left', 'g_s_right', 'g_s_up', 'g_s_down'];
             if(CFG.primeprobe.responseKeys.length === 0)
-                CFG.primeprobe.responseKeys = [K('f'), K('g'), K('n'), K('m')];
+                CFG.primeprobe.responseKeys = ['f', 'g', 'n', 'm'];
 
             // primeprobe splits stimuli into left/right and up/down pairs
             // The stimulus-response bindings are constant
@@ -241,9 +241,9 @@ const CFG = {
                         typeCode: t,
                         block: b,
                         isPractice,
-                        prime,
-                        probe,
-                        responseTarget: X.responseMap[probe],
+                        prime: S(prime),
+                        probe: S(probe),
+                        responseTarget: K(X.responseMap[probe]),
                         isCongruent,
                         primeOnset: null,
                         primeOffset: null,
@@ -319,9 +319,14 @@ const CFG = {
         getResponseMap: function() {
             // simon task uses random stimulus colour pairs
             if(CFG.simon.stimuliColours.length === 0)
-                CFG.simon.stimuliColours = shuffle(['red', 'green', 'blue', 'yellow']);
+                CFG.simon.stimuliColours = shuffle([
+                    'g_s_red',
+                    'g_s_green',
+                    'g_s_blue',
+                    'g_s_yellow'
+                ]);
             if(CFG.simon.responseKeys.length === 0)
-                CFG.simon.responseKeys = [K('ArrowUp'), K('ArrowDown'), K('ArrowLeft'), K('ArrowRight')];
+                CFG.simon.responseKeys = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
 
             // stimuli locations are divided into up/down and left/right pairs
             // response keys are bound to a random colour sharing the same axis
@@ -357,9 +362,10 @@ const CFG = {
                         typeCode: t,
                         block: b,
                         isPractice,
-                        stimColour,
-                        stimLocation: loc,
-                        responseTarget: X.responseMap[stimColour],
+                        stimClass: [stimColour, loc],
+                        stimColour: S(stimColour),
+                        stimLocation: S('g_s_' + loc),
+                        responseTarget: K(X.responseMap[stimColour]),
                         isCongruent,
                         stimOnset: null,
                         stimOffset: null,
@@ -372,9 +378,10 @@ const CFG = {
             return trials;
         },
         showStimulus: function(stimDiv) {
-            stimDiv.classList.add('simon',
-                X.trials[X.trialNum].stimColour,
-                X.trials[X.trialNum].stimLocation);
+            stimDiv.classList.add('simon');
+            X.trials[X.trialNum].stimClass.forEach(
+                (c)=>{stimDiv.classList.add(c)}
+                );
 
             X.trials[X.trialNum].stimOnset = now();
             X.responseOpen = true;
@@ -403,9 +410,14 @@ const CFG = {
         getResponseMap: function() {
             // stroop task uses random stimulus colour pairs bound randomly to response keys
             if(CFG.stroop.stimuliColours.length === 0)
-                CFG.stroop.stimuliColours = shuffle(['red', 'green', 'blue', 'yellow']);
+                CFG.stroop.stimuliColours = shuffle([
+                    'g_s_red',
+                    'g_s_green',
+                    'g_s_blue',
+                    'g_s_yellow'
+                ]);
             if(CFG.stroop.responseKeys.length === 0)
-                CFG.stroop.responseKeys = shuffle([K('z'), K('x'), K('n'), K('m')]);
+                CFG.stroop.responseKeys = shuffle(['z', 'x', 'n', 'm']);
 
             let out = {};
             for(let i = 0; i < CFG.stroop.stimuliColours.length; i++)
@@ -429,15 +441,15 @@ const CFG = {
                     let isCongruent = (t & 4) === 4? 1 : 0;
                     let stimColour = set[(t & 2) === 2 ? 1 : 0][t & 1];
                     let word = isCongruent? stimColour : set[(t & 2) === 2 ? 1 : 0][1-(t & 1)];
-                    let stimWord = S('g_s_' + word);
 
                     let trial = {
                         trialId: trials.length,
                         typeCode: t,
                         block: b,
                         isPractice,
-                        stimColour,
-                        stimWord,
+                        stimClass: stimColour,
+                        stimColour: S(stimColour),
+                        stimWord: S(word),
                         responseTarget: X.responseMap[stimColour],
                         isCongruent,
                         stimOnset: null,
@@ -450,7 +462,7 @@ const CFG = {
             return trials;
         },
         showStimulus: function(stimDiv) {
-            stimDiv.classList.add('stroop', X.trials[X.trialNum].stimColour);
+            stimDiv.classList.add('stroop', X.trials[X.trialNum].stimClass);
             stimDiv.innerText = X.trials[X.trialNum].stimWord;
 
             X.trials[X.trialNum].stimOnset = now();

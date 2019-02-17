@@ -546,7 +546,7 @@ const LOC_STRINGS = {
     'p_i_responses': {
         'EN': "You should place your fingers on the keys as shown below. The table showing which key to press for which response will remain visible during the practice runs.",
         'CZ': "",
-        'HUN': "Miközben a feladatot csinálod kérünk, helyezd az ujjaid a következő módon: f = bal középső ujj, g = bal mutatóujj, j = jobb mutatóujj, n = jobb középső ujj"
+        'HUN': "Miközben a feladatot csinálod kérünk, helyezd az ujjaid a következő módon: <kbd>f</kbd> = bal középső ujj, <kbd>g</kbd> = bal mutatóujj, <kbd>j</kbd> = jobb mutatóujj, <kbd>n</kbd> = jobb középső ujj"
     },
     's_i_overview': {
         'EN': "In this experiment, we are interested in how people resolve conflicts in the processing of visual stimuli. During this experiment, you will see color words painted in different shades, as shown in the examples below.",

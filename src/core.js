@@ -19,6 +19,8 @@ function checkConsent() {
 }
 
 function recordDemographics() {
+    if(event instanceof Event) // defined by browser
+        event.preventDefault();
     let nodes =
         document.querySelectorAll('#Demographics form select, #Demographics form input, #Demographics form textarea');
     nodes.forEach((x)=>{
@@ -259,7 +261,7 @@ function createHints(div) {
        else
            key.innerHTML = K(X.responseMap[r]);
        let stim = tr.appendChild(document.createElement('td'));
-       stim.innerHTML = S('g_s_' + r).toUpperCase();
+       stim.innerHTML = S(r).toUpperCase();
     });
 }
 

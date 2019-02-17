@@ -1,4 +1,20 @@
 /**
+ * Strip non-number entries from an input field
+ */
+function numbersOnly() {
+    if(!event instanceof Event)
+        return;
+
+    let newVal = "";
+    for(let i = 0; i < event.target.value.length; i++) {
+        if(/[0-9]/.test(event.target.value[i]))
+            newVal += event.target.value[i];
+    }
+
+    event.target.value = newVal;
+}
+
+/**
  * Enter or exit fullscreen mode
  * @param {boolean} [enter=true] whether to force-enter fullscreen (false to exit)
  */
@@ -22,8 +38,8 @@ function responseMapToHTML(m) {
     for(let i = 0; i < Object.keys(m).length; i++) {
         if(i !== 0)
             out += "; ";
-        out += "<kbd>" + KI(m[Object.keys(m)[i]]) +
-            "</kbd> = <span class='response-stim'>" + Object.keys(m)[i] + "</span>";
+        out += "<kbd>" + KI(K(m[Object.keys(m)[i]])) +
+            "</kbd> = <span class='response-stim'>" + S(Object.keys(m)[i]) + "</span>";
     }
 
     return out + "</p>";
