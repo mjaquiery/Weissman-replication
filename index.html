@@ -38,8 +38,6 @@
         // holding the variable values for an individual trial. These headers are experiment-specific and set in
         // setupExperiment() [src/core.js]
         const X = {
-            uid: null,
-            platform: '',
             trialNum: 0,
             loc: '',
             type: '',
@@ -47,6 +45,7 @@
             eventLog: [],
             log: function(s) {this.eventLog.push("" + now().toString() + ": " + s);},
             demographics: {},
+            payment: {},
             debrief: {},
             consented: false,
             responseMap: null,
@@ -253,6 +252,19 @@
             <div id="Stimulus" class="countdown"></div>
         </div>
         <div id="Debrief" class="instructions hidden">
+            <div id="Payment">
+                <div>
+                    <input id="DebriefUID" name="userId" type="text" placeholder="S::g_d_uid">
+                </div>
+                <div>
+                    <select name="recruitmentPlatform" id="DebriefPlatform">
+                        <option value="none">S::g_d_none</option>
+                        <option value="hun">S::g_d_hun</option>
+                        <option value="cz">S::g_d_cz</option>
+                    </select>
+                </div>
+            </div>
+
             <div>
                 <textarea id="CommentsGeneral" placeholder="S::g_g_general"></textarea>
                 <button onclick="recordDebriefResponse()">S::g_g_end</button>

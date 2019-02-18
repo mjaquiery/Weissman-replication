@@ -158,6 +158,13 @@ function debrief() {
 }
 
 function recordDebriefResponse() {
+    // Payment info
+    let nodes =
+        document.querySelectorAll('#Payment select, #Payment input, #Payment textarea');
+    nodes.forEach((x)=>{
+        if(typeof x.name !== 'undefined')
+            X.payment[x.name] = x.value;
+    });
     let debriefQs = document.querySelectorAll("#Debrief textarea, #Debrief input, #Debrief select");
     debriefQs.forEach((elm)=> X.debrief[elm.id] = elm.value);
 
@@ -210,14 +217,19 @@ function exportData() {
 
     // Attempt to save data via save.php
     let meta = {
-        UID: X.uid,
-        UIDplatform: X.platform,
         loc: X.loc,
         task: X.type,
         consentTime: X.consented,
         eventLog: X.eventLog.join("| "),
         debriefGeneralComments: X.debrief.CommentsGeneral
     };
+    Object.keys(X.payment).forEach((k)=>{
+        if(typeof meta[k] !== "undefined")
+            meta['payment' + k] = X.payment[k];
+        else
+            meta[k] = X.payment[k];
+    });
+
     let data = {
         meta,
         demographics: X.demographics,

@@ -26,6 +26,7 @@ All .csv files have a header row containing the variable names.
 */
 
 //phpinfo();
+error_reporting(0);
 
 const TASK_LIST = array('flanker', 'primeprobe', 'simon', 'stroop');
 const META_FILE_NAME = '../data/participant-metadata.csv';
@@ -81,7 +82,7 @@ $id = 0;
 $fileNames = scandir("../data/$task/");
 foreach($fileNames as $name) {
     if(preg_match("/_([0-9]+).csv/", $name, $matches) === 1){
-        $x = intval($matches[0]);
+        $x = intval($matches[1]);
         if($x > $id)
             $id = $x;
     }
