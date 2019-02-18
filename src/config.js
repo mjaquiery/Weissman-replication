@@ -450,7 +450,7 @@ const CFG = {
                         stimClass: stimColour,
                         stimColour: S(stimColour),
                         stimWord: S(word),
-                        responseTarget: X.responseMap[stimColour],
+                        responseTarget: K(X.responseMap[stimColour]),
                         isCongruent,
                         stimOnset: null,
                         responseTime: null,

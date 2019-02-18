@@ -261,7 +261,7 @@ function createHints(div) {
        else
            key.innerHTML = K(X.responseMap[r]);
        let stim = tr.appendChild(document.createElement('td'));
-       stim.innerHTML = S(r).toUpperCase();
+       stim.innerHTML = r.toUpperCase();
     });
 }
 
