@@ -590,32 +590,32 @@ const LOC_IMG = {
     'f_keyboard': {
         'EN': "assets/flanker/Keyboard.jpg",
         'CZ': "",
-        'HUN': ""
+        'HUN': "assets/flanker/Keyboard_f_HUN.jpg"
     },
     'i_keyboard': {
         'EN': "assets/simon/Keyboard1.jpg",
         'CZ': "",
-        'HUN': ""
+        'HUN': "assets/simon/Keyboard_i_HUN.jpg"
     },
     'p_keyboard': {
         'EN': "assets/primeprobe/Keyboard.jpg",
         'CZ': "",
-        'HUN': ""
+        'HUN': "assets/primeprobe/Keyboard_p_HUN.jpg"
     },
     'p_ex1': {
         'EN': "assets/primeprobe/Example1_EN.jpg",
         'CZ': "",
-        'HUN': ""
+        'HUN': "assets/primeprobe/Example1_HUN.jpg"
     },
     'p_ex2': {
         'EN': "assets/primeprobe/Example2_EN.jpg",
         'CZ': "",
-        'HUN': ""
+        'HUN': "assets/primeprobe/Example2_HUN.jpg"
     },
     's_keyboard': {
         'EN': "assets/stroop/Keyboard.jpg",
         'CZ': "",
-        'HUN': ""
+        'HUN': "assets/stroop/Keyboard_s_HUN.jpg"
     },
     's_ex1': {
         'EN': "assets/stroop/Example1_EN.jpg",
