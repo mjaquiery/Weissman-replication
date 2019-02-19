@@ -286,7 +286,7 @@ const LOC_STRINGS = {
     'g_d_uid': {
         'EN': "Unique user identifier",
         'CZ': "",
-        'HUN': ""
+        'HUN': "Neptun kód:"
     },
     'g_d_none': {
         'EN': "I do not wish to be paid",
@@ -296,7 +296,7 @@ const LOC_STRINGS = {
     'g_d_hun': {
         'EN': "(Hungarian recruitment platform)",
         'CZ': "",
-        'HUN': ""
+        'HUN': "(Magyar kísérleti személy szervező oldal)"
     },
     'g_d_cz': {
         'EN': "(Czech recruitment platform)",
