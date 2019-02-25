@@ -124,57 +124,42 @@ const LOC_KEYS = {
  */
 const LOC_STRINGS = {
     'g_c_title': {
-        'EN': "Informed consent form:",
+        'EN': "Inform form:",
         'CZ': "",
         'HUN': "Tájékoztató nyilatkozat:"
     },
-    'g_c_about': {
-        'EN': "<strong>About the study</strong>: This study will investigate how you process information and make decisions.",
+    'g_c_summary': {
+        'EN': "<strong>summary of the study</strong>: text",
         'CZ': "",
         'HUN': "<strong>A vizsgálat célja:</strong> A kutatás célja egy korábbi kísérlet megismétlése. A kísérlet azt kutatja, hogyan dolgozod fel az információkat és hozol döntéseket."
     },
-    'g_c_overview': {
-        'EN': "Expect to spend an hour at most to complete this study. If you choose to take part in this study, you will be asked to participate in different types of tasks.",
+    'g_c_data': {
+        'EN': "<strong>data handling</strong>: text",
         'CZ': "",
-        'HUN': "A kísérlet körülbelül 16 percet vesz igénybe."
+        'HUN': "<strong>Adatkezelés:</strong> Szigorúan bizalmasan kezelünk minden olyan információt, amit a kutatás keretén belül gyűjtünk össze. A kutatás során nyert adatokat összegezzük, és statisztikai elemzéseket végzünk rajta, amelyekből egyetlen résztvevő azonossága sem állapítható meg. Minden kísérleti résztvevő Netpun-kódját felírjuk, hogy a kísérleti pontokat adminisztrálhassuk, azonban ezeket a kísérleti adatoktól függetlenül tároljuk. A Neptun-kódok alapján a résztvevők megkapják a részvételért járó pontszámot, ami egy Google dokumentumba lesz bevezetve, ahol azokat a szemeszter végéig tároljuk. Az adatokat anonim módon, Excel formátumban tároljuk, és más kutatók számára is ingyenesen online elérhetővé tesszük."
     },
-    'g_c_content': {
-        'EN': "We may ask you to make decisions based on sounds (such as spoken words in English or non-speech sounds) or images or videos (such as faces, everyday objects, patterns, shapes, animals) that we will present to you. You may also be asked to fill out some questionnaires about your demographic information, attitudes and preferences regarding different types of decisions.",
+    'g_c_participation': {
+        'EN': "<strong>participation</strong>: text",
         'CZ': "",
         'HUN': ""
     },
-    'g_c_volition': {
-        'EN': "Voluntariness:",
+    'g_c_title2': {
+        'EN': "Consent form",
         'CZ': "",
         'HUN': "Részvétel"
     },
-    'g_c_quit': {
-        'EN': "This study is completely voluntary and you can withdraw from this study at any time by closing your Internet browser window.",
+    'g_c_p1': {
+        'EN': "first paragraph text",
         'CZ': "",
         'HUN': "A kutatásban való részvétel teljesen önkéntes. A vizsgálatot bármikor indoklás nélkül megszakíthatod, vagy a kérdések megválaszolását megtagadhatod a böngésző ablak bezárásával."
     },
-    'g_c_compensation': {
-        'EN': "<strong>Compensation</strong>: You will receive the amount of money indicated in the HIT description for your participation. We will screen your responses prior to compensation. ",
+    'g_c_p2': {
+        'EN': "second paragraph text",
         'CZ': "",
         'HUN': ""
     },
     'g_c_incomplete': {
         'EN': "If you do not complete the task, or we feel that you completed it to an unsatisfactory standard (ie. you do not follow the instructions), you will not be compensated.",
-        'CZ': "",
-        'HUN': ""
-    },
-    'g_c_policy': {
-        'EN': "This policy is in line with Amazon Mechanical Turk standards, which state \"a Requester may reject your work if the HIT was not completed correctly or the instructions were not followed.\"",
-        'CZ': "",
-        'HUN': ""
-    },
-    'g_c_confidentiality': {
-        'EN': "<strong>How confidentiality will be maintained</strong>: Amazon Mechanical Turk will provide us, the researchers, only with your responses. We will not have access to your personal information.",
-        'CZ': "",
-        'HUN': "<strong>Adatkezelés:</strong> Szigorúan bizalmasan kezelünk minden olyan információt, amit a kutatás keretén belül gyűjtünk össze. A kutatás során nyert adatokat összegezzük, és statisztikai elemzéseket végzünk rajta, amelyekből egyetlen résztvevő azonossága sem állapítható meg. Minden kísérleti résztvevő Netpun-kódját felírjuk, hogy a kísérleti pontokat adminisztrálhassuk, azonban ezeket a kísérleti adatoktól függetlenül tároljuk. A Neptun-kódok alapján a résztvevők megkapják a részvételért járó pontszámot, ami egy Google dokumentumba lesz bevezetve, ahol azokat a szemeszter végéig tároljuk. Az adatokat anonim módon, Excel formátumban tároljuk, és más kutatók számára is ingyenesen online elérhetővé tesszük."
-    },
-    'g_c_risks': {
-        'EN': "<strong>Risks/Benefits</strong>: We know of no risks or benefits to you for participating in this research study.  The potential benefits of this research lie in the knowledge that will be acquired.\n",
         'CZ': "",
         'HUN': ""
     },
@@ -188,38 +173,26 @@ const LOC_STRINGS = {
         'CZ': "",
         'HUN': "Ha bármilyen kérdésed, aggályod vagy panaszod van a kísérlettel kapcsolatban, kérem keresd Kovács Márton kutatóasszisztenst (marton.balazs.kovacs@gmail.com)."
     },
-    'g_c_email_pi_display': {
-        'EN': "pi@experiment.edu",
-        'CZ': "",
-        'HUN': "marton.balazs.kovacs@gmail.com"
-    },
     'g_c_email_pi_href': {
-        'EN': "mailto:pi@experiment.edu?subject=Weissman experiment",
+        'EN': "<a href='mailto:marton.balazs.kovacs@gmail.com?subject=Weissman experiment'>" +
+            "marton.balazs.kovacs@gmail.com</a>",
         'CZ': "",
-        'HUN': "mailto:marton.balazs.kovacs@gmail.com?subject=Weissman experiment"
+        'HUN': "<a href='mailto:marton.balazs.kovacs@gmail.com?subject=Weissman experiment'>" +
+            "marton.balazs.kovacs@gmail.com</a>"
     },
     'g_c_email_ec': {
         'EN': "You may also contact Human Subjects Protection for questions about your rights as a research subject:",
         'CZ': "",
         'HUN': ""
     },
-    'g_c_email_ec_display': {
-        'EN': "ec@experiment.edu",
-        'CZ': "",
-        'HUN': ""
-    },
     'g_c_email_ec_href': {
-        'EN': "mailto:ec@experiment.edu?subject=Weissman replication, EC#xxxx",
+        'EN': "<a href='mailto:ec@experiment.edu?subject=Weissman replication, EC#xxxx'>" +
+            "ETHICS_COMMITTEE@experiment.edu</a>",
         'CZ': "",
         'HUN': ""
-    },
-    'g_c_checkbox': {
-        'EN': "Please check the box to indicate your consent to participate in the study",
-        'CZ': "",
-        'HUN': "Kérem, amennyiben egyetértesz a fenti feltételekkel, és hozzájárulsz a kutatásban való részvételhez, ezt az állítás mellett megjelenő szürke mező kipipálásával igazold. Együttműködésedet előre is köszönjük!"
     },
     'g_c_agree': {
-        'EN': "I agree to participate.",
+        'EN': "<strong>if you are fine with it click on the box</strong>",
         'CZ': "",
         'HUN': "A kutatásban való részvételem körülményeiről részletes tájékoztatást kaptam, a feltételekkel egyetértek."
     },
