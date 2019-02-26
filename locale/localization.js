@@ -131,32 +131,32 @@ const LOC_STRINGS = {
     'g_c_summary': {
         'EN': "<strong>summary of the study</strong>: text",
         'CZ': "",
-        'HUN': "<strong>A vizsgálat célja:</strong> A kutatás célja egy korábbi kísérlet megismétlése. A kísérlet azt kutatja, hogyan dolgozod fel az információkat és hozol döntéseket."
+        'HUN': "<strong>A vizsgálat célja</strong>: A kutatás célja egy korábbi kísérlet megismétlése. A kísérlet azt kutatja, hogyan dolgozod fel az információkat és hozol döntéseket."
     },
     'g_c_data': {
         'EN': "<strong>data handling</strong>: text",
         'CZ': "",
-        'HUN': "<strong>Adatkezelés:</strong> Szigorúan bizalmasan kezelünk minden olyan információt, amit a kutatás keretén belül gyűjtünk össze. A kutatás során nyert adatokat összegezzük, és statisztikai elemzéseket végzünk rajta, amelyekből egyetlen résztvevő azonossága sem állapítható meg. Minden kísérleti résztvevő Netpun-kódját felírjuk, hogy a kísérleti pontokat adminisztrálhassuk, azonban ezeket a kísérleti adatoktól függetlenül tároljuk. A Neptun-kódok alapján a résztvevők megkapják a részvételért járó pontszámot, ami egy Google dokumentumba lesz bevezetve, ahol azokat a szemeszter végéig tároljuk. Az adatokat anonim módon, Excel formátumban tároljuk, és más kutatók számára is ingyenesen online elérhetővé tesszük."
+        'HUN': "<strong>Adatkezelés</strong>: Szigorúan bizalmasan kezelünk minden olyan információt, amit a kutatás keretén belül gyűjtünk össze. A kutatás során nyert adatokat összegezzük, és statisztikai elemzéseket végzünk rajta, amelyekből egyetlen résztvevő azonossága sem állapítható meg. Minden kísérleti résztvevő Netpun-kódját felírjuk, hogy a kísérleti pontokat adminisztrálhassuk, azonban ezeket a kísérleti adatoktól függetlenül tároljuk. A Neptun-kódok alapján a résztvevők megkapják a részvételért járó pontszámot, ami egy Google dokumentumba lesz bevezetve, ahol azokat a szemeszter végéig tároljuk. Az adatokat anonim módon, Excel formátumban tároljuk, és más kutatók számára is ingyenesen online elérhetővé tesszük."
     },
     'g_c_participation': {
         'EN': "<strong>participation</strong>: text",
         'CZ': "",
-        'HUN': ""
+        'HUN': "<strong>Részvétel</strong>: A kutatásban való részvétel teljesen önkéntes. A vizsgálatot bármikor indoklás nélkül megszakíthatod, vagy a kérdések megválaszolását megtagadhatod a böngésző ablak bezárásával."
     },
     'g_c_title2': {
         'EN': "Consent form",
         'CZ': "",
-        'HUN': "Részvétel"
+        'HUN': "Beleegyező nyilatkozat"
     },
     'g_c_p1': {
         'EN': "first paragraph text",
         'CZ': "",
-        'HUN': "A kutatásban való részvétel teljesen önkéntes. A vizsgálatot bármikor indoklás nélkül megszakíthatod, vagy a kérdések megválaszolását megtagadhatod a böngésző ablak bezárásával."
+        'HUN': "Felelősségem teljes tudatában kijelentem, hogy a mai napon az Eötvös Loránd Tudományegyetem, Dr. Aczél Balázs kutatásvezető által végzett vizsgálatban önként veszek részt; a vizsgálat jellegéről, annak megkezdése előtt kielégítő tájékoztatást kaptam; nem szenvedek semmilyen pszichiátriai betegségben; a vizsgálat idején alkohol vagy drogok hatása alatt nem állok."
     },
     'g_c_p2': {
         'EN': "second paragraph text",
         'CZ': "",
-        'HUN': ""
+        'HUN': "Tudomásul veszem, hogy az azonosításomra alkalmas személyi adataimat bizalmasan kezelik. Hozzájárulok ahhoz, hogy a vizsgálat során a rólam felvett, személyem azonosítására nem alkalmas adatok más kutatók számára is hozzáférhetők legyenek. Fenntartom a jogot arra, hogy a vizsgálat során annak folytatásától bármikor elállhassak. Ilyen esetben a rólam addig felvett adatokat törölni kell. Tudomásul veszem, hogy csak a teljesen befejezett kitöltésért kapok pontot a Pszichológiai kísérletben és tudományos aktivitásban való részvétel nevű kurzuson."
     },
     'g_c_incomplete': {
         'EN': "If you do not complete the task, or we feel that you completed it to an unsatisfactory standard (ie. you do not follow the instructions), you will not be compensated.",
@@ -183,13 +183,14 @@ const LOC_STRINGS = {
     'g_c_email_ec': {
         'EN': "You may also contact Human Subjects Protection for questions about your rights as a research subject:",
         'CZ': "",
-        'HUN': ""
+        'HUN': "Továbbá írhatsz az ELTE adatvédelmi tisztviselőjének Dr. Rigó Kingának [ELTE Adat- és Stratégiai Információkezelési Iroda; 1053 Budapest, Ferenciek tere 6.]"
     },
     'g_c_email_ec_href': {
         'EN': "<a href='mailto:ec@experiment.edu?subject=Weissman replication, EC#xxxx'>" +
             "ETHICS_COMMITTEE@experiment.edu</a>",
         'CZ': "",
-        'HUN': ""
+        'HUN': "<a href='mailto:strategia@rk.elte.hu?subject=Weissman replication'>" +
+            "strategia@rk.elte.hu</a>"
     },
     'g_c_agree': {
         'EN': "<strong>if you are fine with it click on the box</strong>",
