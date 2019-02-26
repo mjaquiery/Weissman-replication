@@ -197,6 +197,11 @@ const LOC_STRINGS = {
         'CZ': "",
         'HUN': "A kutatásban való részvételem körülményeiről részletes tájékoztatást kaptam, a feltételekkel egyetértek."
     },
+    'g_c_agree2': {
+        'EN': "<strong>if you are fine with it click on the box</strong>",
+        'CZ': "",
+        'HUN': "A kutatásban való részvételem körülményeiről részletes tájékoztatást kaptam, a feltételekkel egyetértek."
+    },
     'g_d_title': {
         'EN': "Demographics",
         'CZ': "",
