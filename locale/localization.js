@@ -169,28 +169,16 @@ const LOC_STRINGS = {
         'HUN': ""
     },
     'g_c_email_pi': {
-        'EN': "If questions arise after the experiment, you may contact the primary investigator:",
-        'CZ': "",
-        'HUN': "Ha bármilyen kérdésed, aggályod vagy panaszod van a kísérlettel kapcsolatban, kérem keresd Kovács Márton kutatóasszisztenst (marton.balazs.kovacs@gmail.com)."
-    },
-    'g_c_email_pi_href': {
-        'EN': "<a href='mailto:marton.balazs.kovacs@gmail.com?subject=Weissman experiment'>" +
+        'EN': "If questions arise after the experiment, you may contact the lead researcher " +
+            "<a href='mailto:marton.balazs.kovacs@gmail.com?subject=Weissman experiment'>" +
             "marton.balazs.kovacs@gmail.com</a>",
         'CZ': "",
-        'HUN': "<a href='mailto:marton.balazs.kovacs@gmail.com?subject=Weissman experiment'>" +
-            "marton.balazs.kovacs@gmail.com</a>"
+        'HUN': "Ha bármilyen kérdésed, aggályod vagy panaszod van a kísérlettel kapcsolatban, kérem keresd Kovács Márton kutatóasszisztenst <a href='mailto:marton.balazs.kovacs@gmail.com?subject=Weissman experiment'>marton.balazs.kovacs@gmail.com</a>",
     },
     'g_c_email_ec': {
-        'EN': "You may also contact Human Subjects Protection for questions about your rights as a research subject:",
+        'EN': "You may also contact Human Subjects Protection for questions about your rights as a research subject <a href='mailto:strategia@rk.elte.hu?subject=Weissman replication'>strategia@rk.elte.hu</a>",
         'CZ': "",
-        'HUN': "Továbbá írhatsz az ELTE adatvédelmi tisztviselőjének Dr. Rigó Kingának [ELTE Adat- és Stratégiai Információkezelési Iroda; 1053 Budapest, Ferenciek tere 6.]"
-    },
-    'g_c_email_ec_href': {
-        'EN': "<a href='mailto:ec@experiment.edu?subject=Weissman replication, EC#xxxx'>" +
-            "ETHICS_COMMITTEE@experiment.edu</a>",
-        'CZ': "",
-        'HUN': "<a href='mailto:strategia@rk.elte.hu?subject=Weissman replication'>" +
-            "strategia@rk.elte.hu</a>"
+        'HUN': "Továbbá írhatsz az ELTE adatvédelmi tisztviselőjének Dr. Rigó Kingának (<a href='mailto:strategia@rk.elte.hu?subject=Weissman replication'>strategia@rk.elte.hu</a>) [ELTE Adat- és Stratégiai Információkezelési Iroda; 1053 Budapest, Ferenciek tere 6.]"
     },
     'g_c_agree': {
         'EN': "<strong>if you are fine with it click on the box</strong>",
@@ -363,9 +351,9 @@ const LOC_STRINGS = {
         'HUN': "A kísérlet véget ért, köszönjük a részvételt! Az átlagos eredményed <span id='Score'></span>% volt."
     },
     'g_g_end_contact': {
-        'EN': "If you have any questions or concerns about the experiment, you can contact the lead researcher:",
+        'EN': "If you have any questions or concerns about the experiment, you can contact the lead researcher <a href='mailto:marton.balazs.kovacs@gmail.com?subject=Weissman experiment'>marton.balazs.kovacs@gmail.com</a>",
         'CZ': "",
-        'HUN': "Ha bármi kérdésed vagy megjegyzésed van, kérlek vedd fel a kapcsolatot a kutatás vezetőjével!"
+        'HUN': "Ha bármi kérdésed vagy megjegyzésed van, kérlek vedd fel a kapcsolatot a kutatás vezetőjével <a href='mailto:marton.balazs.kovacs@gmail.com?subject=Weissman experiment'>marton.balazs.kovacs@gmail.com</a>!"
     },
     'g_g_data_save_ok': {
         'EN': "The data have been saved successfully.",

@@ -20,11 +20,10 @@ body {
     justify-content: center;
 }
 
-.contact-link a {
-    padding: .5em;
+a {
     color: inherit;
 }
-.contact-link a:hover {
+a:hover {
     text-decoration: none;
 }
 
