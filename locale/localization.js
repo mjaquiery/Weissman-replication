@@ -195,12 +195,12 @@ const LOC_STRINGS = {
     'g_c_agree': {
         'EN': "<strong>if you are fine with it click on the box</strong>",
         'CZ': "",
-        'HUN': "A kutatásban való részvételem körülményeiről részletes tájékoztatást kaptam, a feltételekkel egyetértek."
+        'HUN': "<strong>Kérem, amennyiben egyetértesz a fenti feltételekkel, és hozzájárulsz a kutatásban való részvételhez, ezt az állítás mellett megjelenő szürke mező kipipálásával igazold. Együttműködésedet előre is köszönjük!</strong>"
     },
     'g_c_agree2': {
         'EN': "<strong>if you are fine with it click on the box</strong>",
         'CZ': "",
-        'HUN': "A kutatásban való részvételem körülményeiről részletes tájékoztatást kaptam, a feltételekkel egyetértek."
+        'HUN': "<strong>A kutatásban való részvételem körülményeiről részletes tájékoztatást kaptam, a feltételekkel egyetértek.</strong>"
     },
     'g_d_title': {
         'EN': "Demographics",
