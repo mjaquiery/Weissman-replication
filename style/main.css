@@ -168,6 +168,10 @@ textarea {
     margin: 0;
 }
 
+#PracticeResponseMap {
+    font-size: 36px;
+}
+
 #CommentsGeneral {
     min-height: 25vh;
     min-width: 50vw;

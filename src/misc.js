@@ -79,13 +79,13 @@ function showDiv(id) {
  * @param {Element} div
  * @param {function} callback
  */
-function countDown(s, div, callback) {
-    div.innerText = s.toString();
+function countDown(s, div, callback, suffix = "") {
+    div.innerHTML = s.toString() + suffix;
     s--;
     if(!s)
         setTimeout(callback, 1000);
     else
-        setTimeout(countDown, 1000, s, div, callback);
+        setTimeout(countDown, 1000, s, div, callback, suffix);
 }
 
 /**
