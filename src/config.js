@@ -51,11 +51,14 @@ const sharedCFG = {
             return false;
         }
 
-        let x = Math.floor(N/16);
+        let nTypes = 16;    // 16 different trial types
+        let rngSplits = 2;  // 2 different RNG tracks (stimulus and everything else)
+        let x = Math.floor(N/(nTypes / rngSplits));
+
         // Number of visits to each node remaining is a 1D array which can be addressed using flags
         let Ns = [];
-        for(let i = 0; i < 16; i++)
-            Ns.push(x);
+        for(let i = 0; i < (nTypes / rngSplits); i++)
+            Ns[i << 1] = x;
 
         let sum = function(X) {
            let sum = 0;
@@ -63,7 +66,30 @@ const sharedCFG = {
            return sum;
         };
 
-        // First trial has random prev and current congruency (Could just be a random int from 0-15)
+        // The specific stimulus for a trial is calculated orthogonally to the other properties
+        // To achieve this, we make a randomised minilist for each congruency-stimulus set pairing
+        let stims = [
+            [               // Incongruent
+                [], []      // Set 1, 2
+            ],
+            [               // Congruent
+                [], []      // Set 1, 2
+            ]
+        ];
+        for(let i = 0; i < N/(nTypes / rngSplits); i++)
+            stims.forEach((c) =>
+                c.forEach((s) =>
+                    [0, 1].forEach((i) =>
+                        s.push(i)
+                    )
+                )
+            );
+        stims = [
+            [shuffle(stims[0][0]), shuffle(stims[0][1])],
+            [shuffle(stims[1][0]), shuffle(stims[1][1])]
+        ];
+
+        // First trial has random prev and current congruency (Could just be a random int from 0-14)
         let trials = [
             ((Math.random() > .5? 1 : 0) << 3) +
             ((Math.random() > .5? 1 : 0) << 2) +
@@ -77,10 +103,8 @@ const sharedCFG = {
             let t = trials[trials.length-1];
             // Work out which nodes are connected by edges from here
             let options = [
-                ((t & 4) << 1) + (0 << 2) + (2-(t & 2)) + 0,
-                ((t & 4) << 1) + (1 << 2) + (2-(t & 2)) + 0,
-                ((t & 4) << 1) + (0 << 2) + (2-(t & 2)) + 1,
-                ((t & 4) << 1) + (1 << 2) + (2-(t & 2)) + 1
+                ((t & 4) << 1) + (0 << 2) + (2-(t & 2)),
+                ((t & 4) << 1) + (1 << 2) + (2-(t & 2))
             ];
 
             // Random selection of next node
@@ -96,14 +120,15 @@ const sharedCFG = {
                 return sharedCFG.getCongruencySequence(N, plus1, reps + 1);
             }
 
-            let choice = availableOptions[getRandomInt(0,availableOptions.length - 1)];
+            let choice = availableOptions[getRandomInt(0, availableOptions.length - 1)];
 
-            trials.push(choice);
+            // Save the trial and append the stimulus choice
+            trials.push(choice + stims[(4 & choice) >> 2][(2 & choice) >> 1].pop());
             Ns[choice]--;
         }
         if(reps > 100)
             X.log('Sequence generation for N=' + N + ' took >100 (' + (reps+1) + ') attempts.');
-        console.log('Generated ' + trials.length + ' trial types in ' + (reps+1) + ' attempts.');
+
         return trials;
     }
 };
