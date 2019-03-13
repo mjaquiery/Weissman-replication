@@ -3,7 +3,7 @@
     Each experiment contains variables and functions used in its setup and execution.
  */
 const sharedCFG = {
-    blocks: 4,
+    blocks: 1 + 4,
     trialsPerBlock: 80,
     trainingTrials: 32,
     interTrialInterval: 1000,
@@ -89,16 +89,18 @@ const sharedCFG = {
             [shuffle(stims[1][0]), shuffle(stims[1][1])]
         ];
 
-        // First trial has random prev and current congruency (Could just be a random int from 0-14)
+        // First trial has random prev and current congruency and stimulus set
         let trials = [
             ((Math.random() > .5? 1 : 0) << 3) +
             ((Math.random() > .5? 1 : 0) << 2) +
-            ((Math.random() > .5? 1 : 0) << 1) +
-            (Math.random() > .5? 1 : 0)
+            ((Math.random() > .5? 1 : 0) << 1)
         ];
         if(!plus1)
             Ns[trials[trials.length-1]]--;
+        // First trial has random stimulus within set
+        trials[0] += Math.random() > .5? 1 : 0;
 
+        // Build the rest of the trials
         while(sum(Ns) > 0) {
             let t = trials[trials.length-1];
             // Work out which nodes are connected by edges from here
