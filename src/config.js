@@ -45,6 +45,8 @@ const sharedCFG = {
      * @return {int[]|boolean} list of trial types or false on failure
      */
     getCongruencySequence: function(N, plus1 = true, reps = 0) {
+        const useWeights = true;
+
         // Stop infinite loops
         if(reps > 1000) {
             X.log("getCongruencySequence failed: recursion limit reached");
@@ -122,7 +124,15 @@ const sharedCFG = {
                 return sharedCFG.getCongruencySequence(N, plus1, reps + 1);
             }
 
-            let choice = availableOptions[getRandomInt(0, availableOptions.length - 1)];
+            let choice;
+
+            if(useWeights && availableOptions.length === 2) {
+                // Selection weighted by counts of remaining trials
+                const rng = getRandomInt(0, Ns[availableOptions[0]] + Ns[availableOptions[1]] - 1);
+
+                choice = rng < Ns[options[0]]? availableOptions[0] : availableOptions[1];
+            } else
+                choice = availableOptions[getRandomInt(0, availableOptions.length - 1)];
 
             // Save the trial and append the stimulus choice
             trials.push(choice + stims[(4 & choice) >> 2][(2 & choice) >> 1].pop());
