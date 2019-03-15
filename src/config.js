@@ -5,7 +5,7 @@
 const sharedCFG = {
     blocks: 1 + 4,
     trialsPerBlock: 80,
-    trainingTrials: 32,
+    trainingTrials: 24,
     interTrialInterval: 1000,
     trainingInterTrialInterval: 1500,
     maxRT: 1000,

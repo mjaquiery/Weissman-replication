@@ -240,7 +240,7 @@ textarea {
 }
 
 #Stimulus.primeprobe, #Stimulus.flanker, #Stimulus.countdown, #Stimulus.feedback {
-    color: black;
+    color: #cccccc;
 }
 
 #Stimulus.primeprobe.prime {
