@@ -182,7 +182,7 @@ const CFG = {
             for(let b = 0; b < CFG.flanker.blocks; b++) {
                 let isPractice = b === 0? 1 : 0;
                 let trialTypes = sharedCFG.getCongruencySequence(
-                    isPractice? CFG.flanker.trainingTrials : CFG.flanker.trialsPerBlock
+                    isPractice? CFG.flanker.trainingTrials : CFG.flanker.trialsPerBlock, b > 0
                 );
                 trialTypes.forEach((t) => {
                     let trial = {
@@ -259,7 +259,7 @@ const CFG = {
             for(let b = 0; b < CFG.primeprobe.blocks; b++) {
                 let isPractice = b === 0? 1 : 0;
                 let trialTypes = sharedCFG.getCongruencySequence(
-                    isPractice? CFG.primeprobe.trainingTrials : CFG.primeprobe.trialsPerBlock
+                    isPractice? CFG.primeprobe.trainingTrials : CFG.primeprobe.trialsPerBlock, b > 0
                 );
                 trialTypes.forEach((t) => {
                     let isCongruent = (t & 4) === 4? 1 : 0;
@@ -375,7 +375,7 @@ const CFG = {
             for(let b = 0; b < CFG.simon.blocks; b++) {
                 let isPractice = b === 0? 1 : 0;
                 let trialTypes = sharedCFG.getCongruencySequence(
-                    isPractice? CFG.simon.trainingTrials : CFG.simon.trialsPerBlock
+                    isPractice? CFG.simon.trainingTrials : CFG.simon.trialsPerBlock, b > 0
                 );
                 trialTypes.forEach((t) => {
                     let isCongruent = (t & 4) === 4? 1 : 0;
@@ -464,7 +464,7 @@ const CFG = {
             for(let b = 0; b < CFG.stroop.blocks; b++) {
                 let isPractice = b === 0? 1 : 0;
                 let trialTypes = sharedCFG.getCongruencySequence(
-                    isPractice? CFG.stroop.trainingTrials : CFG.stroop.trialsPerBlock
+                    isPractice? CFG.stroop.trainingTrials : CFG.stroop.trialsPerBlock, b > 0
                 );
                 trialTypes.forEach((t) => {
                     let isCongruent = (t & 4) === 4? 1 : 0;
