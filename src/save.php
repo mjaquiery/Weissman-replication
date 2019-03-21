@@ -29,7 +29,7 @@ All .csv files have a header row containing the variable names.
 error_reporting(0);
 
 const TASK_LIST = array('flanker', 'primeprobe', 'simon', 'stroop');
-const META_FILE_NAME = '../data/participant-metadata.csv';
+const META_FILE_NAME = '../data/private/participant-metadata.csv';
 
 $out = array(
     "error" => "",
