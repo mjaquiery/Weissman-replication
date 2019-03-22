@@ -58,8 +58,8 @@
         // Parse the input string for experiment name, locale, userId, and other information
         let search = splitSearch(window.location.search);
         X.uid = search.uid;
-        X.loc = search.loc;
-        X.type = search.name;
+        X.loc = search.loc.toUpperCase();
+        X.type = search.name.toLowerCase();
         X.debug = typeof search.debug === 'undefined'? false : search.debug == true;
 
     </script>

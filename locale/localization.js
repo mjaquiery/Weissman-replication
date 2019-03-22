@@ -9,7 +9,7 @@
 function S(str, loc) {
     if(typeof loc !== 'undefined')
         return LOC_STRINGS[str.toLowerCase()][loc.toUpperCase()];
-    return LOC_STRINGS[str.toLowerCase()][X.loc.toUpperCase()];
+    return LOC_STRINGS[str.toLowerCase()][X.loc];
 }
 
 /**
@@ -21,7 +21,7 @@ function S(str, loc) {
 function I(str, loc) {
     if(typeof loc !== 'undefined')
         return LOC_IMG[str.toLowerCase()][loc.toUpperCase()];
-    return LOC_IMG[str.toLowerCase()][X.loc.toUpperCase()];
+    return LOC_IMG[str.toLowerCase()][X.loc];
 }
 
 /**
@@ -33,7 +33,7 @@ function I(str, loc) {
 function K(char, loc) {
     if(typeof loc !== 'undefined')
         return LOC_KEYS[char.toLowerCase()][loc.toUpperCase()];
-    return LOC_KEYS[char.toLowerCase()][X.loc.toUpperCase()];
+    return LOC_KEYS[char.toLowerCase()][X.loc];
 }
 
 /**

@@ -39,19 +39,19 @@ function setupExperiment() {
     if(X.trials.length)
         return;
 
-    X.responseMap = CFG[X.type.toLowerCase()].getResponseMap();
+    X.responseMap = CFG[X.type].getResponseMap();
     createHints(document.querySelector('#Hint'));
 
     // Load instructions
     document.querySelectorAll('#Instructions > div').forEach((x)=>x.classList.add('hidden'));
     document.querySelector('#Instructions' + X.type.toUpperCase()).classList.remove('hidden');
 
-    X.cfg = CFG[X.type.toLowerCase()];
+    X.cfg = CFG[X.type];
 
     if(X.debug) {
-        CFG[X.type.toLowerCase()].interTrialInterval = 10;
-        CFG[X.type.toLowerCase()].trainingInterTrialInterval = 10;
-        CFG[X.type.toLowerCase()].maxRT = 10;
+        CFG[X.type].interTrialInterval = 10;
+        CFG[X.type].trainingInterTrialInterval = 10;
+        CFG[X.type].maxRT = 10;
     }
 
     // Configure the specified experiment
