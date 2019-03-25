@@ -30,12 +30,28 @@ error_reporting(0);
 
 const TASK_LIST = array('flanker', 'primeprobe', 'simon', 'stroop');
 const META_FILE_NAME = '../data/private/participant-metadata.csv';
+const ERROR_FILE_NAME = '../data/private/error.log';
 
 $out = array(
     "error" => "",
     "code" => 200,
     "content" => ""
 );
+
+function sulk($out, $meta) {
+
+    $now = new DateTime('NOW');
+    $logStr = "[".$now->format('c')."] results not saved for user ".
+        $meta["userId"]." (".$meta["recruitmentPlatform"].
+        "): ".$out["error"].PHP_EOL;
+
+    // No error catching because we want PHP to throw issues to log on problem.
+    $handle = fopen(ERROR_FILE_NAME, 'a+');
+    fwrite($handle, $logStr);
+    fclose($handle);
+
+    die(json_encode($out));
+}
 
 // Unpack POST data
 $json = json_decode(stripslashes(file_get_contents("php://input")));
@@ -50,7 +66,7 @@ $task = $meta["task"];
 if(array_search($task, TASK_LIST, true) === false) {
     $out["code"] = 403;
     $out["error"] = "Unrecognized task name '$task'";
-    die(json_encode($out));
+    sulk($out, $meta);
 }
 
 // Create metadata and demographics files if necessary
@@ -61,7 +77,7 @@ if(!file_exists(META_FILE_NAME)) {
     } else {
         $out["code"] = 500;
         $out["error"] = "Unable to initialize results storage.";
-        die(json_encode($out));
+        sulk($out, $meta);
     }
 }
 
@@ -73,7 +89,7 @@ if(!file_exists($demoFileName)) {
     } else {
         $out["code"] = 500;
         $out["error"] = "Unable to initialize demographic results storage.";
-        die(json_encode($out));
+        sulk($out, $meta);
     }
 }
 
@@ -101,7 +117,7 @@ if(($handle = fopen(META_FILE_NAME, 'a')) !== false) {
 } else {
     $out["code"] = 500;
     $out["error"] = "Unable to update results storage.";
-    die(json_encode($out));
+    sulk($out, $meta);
 }
 
 // Append the demographics info to the demographics file
@@ -110,7 +126,7 @@ if(($handle = fopen($demoFileName, 'a')) !== false) {
 } else {
     $out["code"] = 500;
     $out["error"] = "Unable to update demographic results storage.";
-    die(json_encode($out));
+    sulk($out, $meta);
 }
 
 $trialFileName = "../data/$task/".date('Y-m-d_H-i-s')."_$id.csv";
@@ -124,11 +140,11 @@ if(($handle = fopen($trialFileName, 'w')) !== false) {
 } else {
     $out["code"] = 500;
     $out["error"] = "Unable to save trial results for user ID $id.";
-    die(json_encode($out));
+    sulk($out, $meta);
 }
 
 
 // Send back the all clear
 $out["content"] = "Data saved successfully.";
-die(json_encode($out));
+sulk($out, $meta);
 ?>
