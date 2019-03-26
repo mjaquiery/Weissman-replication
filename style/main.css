@@ -58,6 +58,11 @@ kbd {
     overflow-y: auto;
 }
 
+#Experiment {
+    user-select: none;
+    outline: none;
+}
+
 .note {
     font-size: .8em;
     font-style: italic;
