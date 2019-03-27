@@ -146,5 +146,5 @@ if(($handle = fopen($trialFileName, 'w')) !== false) {
 
 // Send back the all clear
 $out["content"] = "Data saved successfully.";
-sulk($out, $meta);
+die(json_encode($out));
 ?>
