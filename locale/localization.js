@@ -375,6 +375,21 @@ const LOC_STRINGS = {
         'CZ': "",
         'HUN': "Inkább nem válaszolnék"
     },
+    'g_g_stimulus' : {
+        'EN': "Stimulus",
+        'CZ': "",
+        'HUN': ""
+    },
+    'g_g_response' : {
+        'EN': "Response",
+        'CZ': "",
+        'HUN': ""
+    },
+    'g_g_finger' : {
+        'EN': "Finger",
+        'CZ': "",
+        'HUN': ""
+    },
     'g_h_flanker': {
         'EN': "Middle letter",
         'CZ': "",
@@ -562,7 +577,7 @@ const LOC_IMG = {
     'f_keyboard': {
         'EN': "assets/flanker/Keyboard.jpg",
         'CZ': "",
-        'HUN': "assets/flanker/Keyboard_f_HUN.jpg"
+        'HUN': "assets/flanker/Keyboard_f_HUN.png"
     },
     'i_keyboard': {
         'EN': "assets/simon/Keyboard1.jpg",
