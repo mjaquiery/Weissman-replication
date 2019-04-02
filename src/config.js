@@ -160,7 +160,7 @@ const CFG = {
             if(CFG.flanker.stimuli.length === 0)
                 CFG.flanker.stimuli = ['g_s_M', 'g_s_S', 'g_s_T', 'g_s_H'];
             if(CFG.flanker.responseKeys.length === 0)
-                CFG.flanker.responseKeys = ['m', 'n', 'x', 'z'];
+                CFG.flanker.responseKeys = ['m', 'n', 'x', 'c'];
 
             // Flanker task uses randomised stimulus pairings
             let stim = shuffle(CFG.flanker.stimuli);
@@ -446,7 +446,7 @@ const CFG = {
                     'g_s_yellow'
                 ]);
             if(CFG.stroop.responseKeys.length === 0)
-                CFG.stroop.responseKeys = shuffle(['z', 'x', 'n', 'm']);
+                CFG.stroop.responseKeys = shuffle(['c', 'x', 'n', 'm']);
 
             let out = {};
             for(let i = 0; i < CFG.stroop.stimuliColours.length; i++)
