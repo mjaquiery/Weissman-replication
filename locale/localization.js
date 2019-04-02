@@ -508,7 +508,7 @@ const LOC_STRINGS = {
     'f_i_responses': {
         'EN': "For each string, your task is to identify the center letter, while ignoring the other letters. For example, the correct responses to the examples above are S and T, respectively. You will use the <kbd>z</kbd>, <kbd>x</kbd>, <kbd>n</kbd> and <kbd>m</kbd> keys for responses. You will learn the correspondence between the letters and the keys later in the practice session. Please respond as fast as possible while trying to avoid making mistakes.",
         'CZ': "",
-        'HUN': "Minden egyes betűsornál az a feladatod, hogy meghatározd a középső betűt, miközben a többi betűt figyelmen kívül hagyod. Például, a helyes válaszok a fenti példákra az S és a T. Az <kbd>y</kbd>, <kbd>x</kbd>, <kbd>n</kbd> and <kbd>m</kbd> billentyűket fogod a válaszadásra használni. A betűk és a billentyűk közti összefüggést később, a gyakorló rész alatt lesz alkalmad megtanulni. Kérünk, olyan gyorsan válaszolj, amennyire ez lehetséges hibázás nélkül!"
+        'HUN': "Minden egyes betűsornál az a feladatod, hogy meghatározd a középső betűt, miközben a többi betűt figyelmen kívül hagyod. Például, a helyes válaszok a fenti példákra az S és a T. A <kbd>c</kbd>, <kbd>x</kbd>, <kbd>n</kbd> and <kbd>m</kbd> billentyűket fogod a válaszadásra használni. A betűk és a billentyűk közti összefüggést később, a gyakorló rész alatt lesz alkalmad megtanulni. Kérünk, olyan gyorsan válaszolj, amennyire ez lehetséges hibázás nélkül!"
     },
     'f_i_duration': {
         'EN': "The whole experiment is divided into 4 runs of about 4 minutes each (on average, 16 minutes in total). You may also have a short break between runs.",
