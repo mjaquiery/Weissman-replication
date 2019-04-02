@@ -84,6 +84,11 @@ const LOC_KEYS = {
         'CZ': '',
         'HUN': 'x'
     },
+    'c': {
+        'EN': 'c',
+        'CZ': 'c',
+        'HUN': 'c'
+    },
     'z': {
         'EN': 'z',
         'CZ': '',

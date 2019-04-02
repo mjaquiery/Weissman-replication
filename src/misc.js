@@ -35,11 +35,32 @@ function setFullScreen(enter = true) {
  */
 function responseMapToHTML(m) {
     let out = "<p class='response-map'>";
-    for(let i = 0; i < Object.keys(m).length; i++) {
-        if(i !== 0)
-            out += "; ";
-        out += "<kbd>" + KI(K(m[Object.keys(m)[i]])) +
-            "</kbd> = <span class='response-stim'>" + S(Object.keys(m)[i]) + "</span>";
+    let first = true;
+
+    // Keys in the order they should be displayed
+    const keys = [
+        'z', 'x', 'c', 'f', 'g', 'n', 'm', 'j', 'k',
+        'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'
+    ];
+
+    for(let i = 0; i < keys.length; i++) {
+        let x = null;
+        for(let k of Object.keys(m)) {
+            if(m[k] === keys[i]) {
+                x = k;
+                break;
+            }
+        }
+        if(x !== null) {
+            if(!first)
+                out += "; ";
+            else
+                first = false;
+
+            out += "<kbd>" + KI(K(keys[i])) +
+                "</kbd> = <span class='response-stim'>" + S(x) + "</span>";
+        }
+
     }
 
     return out + "</p>";
