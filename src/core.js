@@ -66,7 +66,7 @@ function setupExperiment() {
 function practiceInstructions() {
     // Show the practice dialogue
     showDiv('Practice');
-    document.querySelector('#PracticeResponseMap').innerHTML = responseMapToHTML(X.cfg.getResponseMap());
+    document.querySelectorAll('.practice-response-map').forEach(elm => elm.innerHTML = responseMapToHTML(X.cfg.getResponseMap()));
 }
 
 function runExperiment() {
@@ -77,7 +77,7 @@ function runExperiment() {
         countDown(1, document.querySelector('#Stimulus'), runTrial);
     else
         countDown(5, document.querySelector('#Stimulus'), runTrial,
-            responseMapToHTML(X.cfg.getResponseMap()));
+            responseMapToHTML(X.cfg.getResponseMap(), false));
 }
 
 function runTrial() {

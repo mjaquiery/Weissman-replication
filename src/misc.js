@@ -28,20 +28,44 @@ function setFullScreen(enter = true) {
     }
 }
 
+function getKeyFinger(k) {
+    switch(k) {
+        case 'x':
+        case 'f':
+        case 'ArrowLeft':
+            return S('g_f_left_middle');
+        case 'c':
+        case 'g':
+        case 'ArrowRight':
+            return S('g_f_left_index');
+        case 'n':
+        case 'ArrowDown':
+            return S('g_f_right_index');
+        case 'j':
+        case 'm':
+        case 'ArrowUp':
+            return S('g_f_right_middle');
+    }
+
+    return "unknown";
+}
+
 /**
  * Return a string explaining the response map
  * @param {object} m
+ * @param [fingerMap=true] {boolean} whether to show finger-key mapping
  * @return {string}
  */
-function responseMapToHTML(m) {
-    let out = "<p class='response-map'>";
-    let first = true;
+function responseMapToHTML(m, fingerMap = true) {
+    let out = "";
 
     // Keys in the order they should be displayed
     const keys = [
         'z', 'x', 'c', 'f', 'g', 'n', 'm', 'j', 'k',
         'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'
     ];
+
+    let map = [];
 
     for(let i = 0; i < keys.length; i++) {
         let x = null;
@@ -51,19 +75,37 @@ function responseMapToHTML(m) {
                 break;
             }
         }
+
         if(x !== null) {
-            if(!first)
-                out += "; ";
-            else
-                first = false;
-
-            out += "<kbd>" + KI(K(keys[i])) +
-                "</kbd> = <span class='response-stim'>" + S(x) + "</span>";
+            map.push([
+                "<span>" + getKeyFinger(keys[i]) + "</span>",
+                "<kbd>" + KI(K(keys[i])) + "</kbd>",
+                "<span class='response-stim'>" + S(x) + "</span>"
+            ]);
         }
-
     }
 
-    return out + "</p>";
+    if(fingerMap) {
+        let rows = [];
+        map.forEach((r) => rows.push(
+            "<div><div>" + r[0] +
+            "</div><div>" + r[1] +
+            "</div><div>" + r[2] +
+            "</div></div>"
+        ));
+        out = "<div class='response-table'>" +
+            "<div class='labels'>" +
+            "<div>" + S('g_g_finger') + "</div>" +
+            "<div>" + S('g_g_response') + "</div>" +
+            "<div>" + S('g_g_stimulus') + "</div>" +
+            "</div>" + rows.join("") + "</div>";
+    } else {
+        let rows = [];
+        map.forEach((x) => rows.push(x[1] + " = " + x[2]));
+        out = "<p class='response-map'>" + rows.join("; ") + "</p>";
+    }
+
+    return out;
 }
 
 /**

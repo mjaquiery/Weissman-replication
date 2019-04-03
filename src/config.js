@@ -20,7 +20,7 @@ const sharedCFG = {
             else
                 stimDiv.innerHTML = S('g_r_incorrect').toUpperCase();
 
-            stimDiv.innerHTML += "<br/>" + responseMapToHTML(X.responseMap);
+            stimDiv.innerHTML += "<br/>" + responseMapToHTML(X.responseMap, false);
             return X.cfg.trainingInterTrialInterval;
         }
 
