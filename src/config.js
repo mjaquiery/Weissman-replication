@@ -239,7 +239,7 @@ const CFG = {
             if(CFG.primeprobe.stimuli.length === 0)
                 CFG.primeprobe.stimuli = ['g_s_left', 'g_s_right', 'g_s_up', 'g_s_down'];
             if(CFG.primeprobe.responseKeys.length === 0)
-                CFG.primeprobe.responseKeys = ['f', 'g', 'n', 'm'];
+                CFG.primeprobe.responseKeys = ['f', 'g', 'n', 'j'];
 
             // primeprobe splits stimuli into left/right and up/down pairs
             // The stimulus-response bindings are constant
