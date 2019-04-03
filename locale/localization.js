@@ -56,32 +56,32 @@ function KI(char) {
 const LOC_KEYS = {
     'f': {
         'EN': 'f',
-        'CZ': '',
+        'CZ': 'f',
         'HUN': 'f'
     },
     'g': {
         'EN': 'g',
-        'CZ': '',
+        'CZ': 'g',
         'HUN': 'g'
     },
     'j': {
         'EN': 'j',
-        'CZ': '',
+        'CZ': 'j',
         'HUN': 'j'
     },
     'm': {
         'EN': 'm',
-        'CZ': '',
+        'CZ': 'm',
         'HUN': 'm'
     },
     'n': {
         'EN': 'n',
-        'CZ': '',
+        'CZ': 'n',
         'HUN': 'n'
     },
     'x': {
         'EN': 'x',
-        'CZ': '',
+        'CZ': 'x',
         'HUN': 'x'
     },
     'c': {
@@ -91,7 +91,7 @@ const LOC_KEYS = {
     },
     'z': {
         'EN': 'z',
-        'CZ': '',
+        'CZ': 'z',
         'HUN': 'y'
     },
     'arrowdown': {
