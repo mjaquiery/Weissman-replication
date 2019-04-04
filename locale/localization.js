@@ -578,12 +578,12 @@ const LOC_IMG = {
     },
     'p_ex1': {
         'EN': "assets/primeprobe/Example1_EN.jpg",
-        'CZ': "assets/primeprobe/Example1_CZ.png",
+        'CZ': "assets/primeprobe/Example1_CZ.jpg",
         'HUN': "assets/primeprobe/Example1_HUN.jpg"
     },
     'p_ex2': {
         'EN': "assets/primeprobe/Example2_EN.jpg",
-        'CZ': "assets/primeprobe/Example2_CZ.png",
+        'CZ': "assets/primeprobe/Example2_CZ.jpg",
         'HUN': "assets/primeprobe/Example2_HUN.jpg"
     },
     's_keyboard': {
@@ -593,12 +593,12 @@ const LOC_IMG = {
     },
     's_ex1': {
         'EN': "assets/stroop/Example1_EN.jpg",
-        'CZ': "assets/stroop/Example1_CZ.png",
+        'CZ': "assets/stroop/Example1_CZ.jpg",
         'HUN': "assets/stroop/Example1_HUN.jpg"
     },
     's_ex2': {
         'EN': "assets/stroop/Example2_EN.jpg",
-        'CZ': "assets/stroop/Example2_CZ.png",
+        'CZ': "assets/stroop/Example2_CZ.jpg",
         'HUN': "assets/stroop/Example2_HUN.jpg"
     }
 };
