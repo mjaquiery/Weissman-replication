@@ -84,9 +84,14 @@ const LOC_KEYS = {
         'CZ': 'x',
         'HUN': 'x'
     },
+    'c': {
+        'EN': 'c',
+        'CZ': 'c',
+        'HUN': 'c'
+    },
     'z': {
         'EN': 'z',
-        'CZ': 'y',
+        'CZ': 'z',
         'HUN': 'y'
     },
     'arrowdown': {
@@ -370,6 +375,21 @@ const LOC_STRINGS = {
         'CZ': "Raději nechci sdělit",
         'HUN': "Inkább nem válaszolnék"
     },
+    'g_g_stimulus' : {
+        'EN': "Stimulus",
+        'CZ': "",
+        'HUN': "Inger"
+    },
+    'g_g_response' : {
+        'EN': "Response",
+        'CZ': "",
+        'HUN': "Válaszgomb"
+    },
+    'g_g_finger' : {
+        'EN': "Finger",
+        'CZ': "",
+        'HUN': "Ujj"
+    },
     'g_h_flanker': {
         'EN': "Middle letter",
         'CZ': "Prostřední písmeno",
@@ -488,7 +508,7 @@ const LOC_STRINGS = {
     'f_i_responses': {
         'EN': "For each string, your task is to identify the center letter, while ignoring the other letters. For example, the correct responses to the examples above are S and T, respectively. You will use the <kbd>z</kbd>, <kbd>x</kbd>, <kbd>n</kbd> and <kbd>m</kbd> keys for responses. You will learn the correspondence between the letters and the keys later in the practice session. Please respond as fast as possible while trying to avoid making mistakes.",
         'CZ': "Pro každý řetězec je vaším úkolem identifikovat písmeno ve středu a zároveň ignorovat ostatní písmena. Například v příkladech uvedených výše jsou správné odpovědi S a T. Pro odpovědi budete používat klávesy <kbd>z</kbd>, <kbd>x</kbd>, <kbd>n</kbd> a <kbd>m</kbd>. Přiřazení kláves k jednotlivým písmenům se naučíte během zácviku, který bude později. Prosíme Vás, abyste odpovídali co nejrychleji, ale zároveň také co nejpřesněji.",
-        'HUN': "Minden egyes betűsornál az a feladatod, hogy meghatározd a középső betűt, miközben a többi betűt figyelmen kívül hagyod. Például, a helyes válaszok a fenti példákra az S és a T. Az <kbd>y</kbd>, <kbd>x</kbd>, <kbd>n</kbd> and <kbd>m</kbd> billentyűket fogod a válaszadásra használni. A betűk és a billentyűk közti összefüggést később, a gyakorló rész alatt lesz alkalmad megtanulni. Kérünk, olyan gyorsan válaszolj, amennyire ez lehetséges hibázás nélkül!"
+        'HUN': "Minden egyes betűsornál az a feladatod, hogy meghatározd a középső betűt, miközben a többi betűt figyelmen kívül hagyod. Például, a helyes válaszok a fenti példákra az S és a T. A <kbd>c</kbd>, <kbd>x</kbd>, <kbd>n</kbd> and <kbd>m</kbd> billentyűket fogod a válaszadásra használni. A betűk és a billentyűk közti összefüggést később, a gyakorló rész alatt lesz alkalmad megtanulni. Kérünk, olyan gyorsan válaszolj, amennyire ez lehetséges hibázás nélkül!"
     },
     'f_i_duration': {
         'EN': "The whole experiment is divided into 4 runs of about 4 minutes each (on average, 16 minutes in total). You may also have a short break between runs.",
@@ -522,8 +542,8 @@ const LOC_STRINGS = {
     },
     'p_i_detail': {
         'EN': "Your task is to indicate the identity of this single word (not the 3 words that appear earlier). You will use the <kbd>f</kbd>, <kbd>g</kbd>, <kbd>j</kbd>, and <kbd>n</kbd> keys to respond. The responses are shown below, along with which fingers to use for which keys. In the example above, the single word was 'LEFT', so you would press the <kbd>f</kbd> key. In all trials, please respond as quickly as possible without making mistakes.",
-        'CZ': "Vaším úkolem je označit identitu tohoto jediného slovo (ne 3 slov, která se objevila dříve). Pokud tímto slovem bude "levá", zmáčkněte prostředníkem levé ruky klávesu 'f'. Pokud tímto slovem bude 'pravá', zmáčkněte levým ukazovákem klávesu 'g'. Pokud tímto slovem bude 'nahoru', zmáčkněte pravým prostředníčkem klávesu 'j'. Pokud tímto slovem bude 'dolů', zmáčkněte pravým ukazovákem klávesu  n. Ve všech pokusech prosím odpovídejte co nejrychleji, aniž byste udělali chyby.",
-        'HUN': "A  feladatod az lesz, hogy beazonosítsd az egyedül álló szót (ne a három szót, ami előtte jelenik meg). Ha az egyedül álló szó Bal, akkor nyomd meg az F billentyűt a bal középső ujjaddal! Ha az egyedül álló szó Jobb, akkor nyomd meg a G billentyűt a bal mutatóujjaddal! Ha az egyedül álló szó Fel, akkor nyomd meg a J billentyűt a jobb középső ujjaddal! Ha az egyedül álló szó Le, nyomd meg az N billentyűt a jobb mutatóujjaddal! Minden próbában próbálj meg olyan gyorsan válaszolni, amennyire lehetséges hibázás nélkül!"
+        'CZ': "Vaším úkolem je označit identitu tohoto jediného slovo (ne 3 slov, která se objevila dříve). Pokud tímto slovem bude \"levá\", zmáčkněte prostředníkem levé ruky klávesu <kbd>f</kbd>. Pokud tímto slovem bude 'pravá', zmáčkněte levým ukazovákem klávesu <kbd>g</kbd>. Pokud tímto slovem bude 'nahoru', zmáčkněte pravým prostředníčkem klávesu <kbd>j</kbd>. Pokud tímto slovem bude 'dolů', zmáčkněte pravým ukazovákem klávesu  <kbd>n</kbd>. Ve všech pokusech prosím odpovídejte co nejrychleji, aniž byste udělali chyby.",
+        'HUN': "A  feladatod az lesz, hogy beazonosítsd az egyedül álló szót (ne a három szót, ami előtte jelenik meg). Ha az egyedül álló szó Bal, akkor nyomd meg az <kbd>f</kbd> billentyűt a bal középső ujjaddal! Ha az egyedül álló szó Jobb, akkor nyomd meg a <kbd>g</kbd> billentyűt a bal mutatóujjaddal! Ha az egyedül álló szó Fel, akkor nyomd meg a <kbd>j</kbd> billentyűt a jobb középső ujjaddal! Ha az egyedül álló szó Le, nyomd meg az <kbd>n</kbd> billentyűt a jobb mutatóujjaddal! Minden próbában próbálj meg olyan gyorsan válaszolni, amennyire lehetséges hibázás nélkül!"
     },
     'p_i_practice': {
         'EN': "To make sure you understand the task, and to help you learn the response keys, we will give you a few practice trials. If you make a mistake, an error message will appear. After the practice trials, there will be 4 test runs. Each test run will last about 3 minutes and 20 seconds. You may also have a short break between runs. The total time is about 16 minutes.",
@@ -533,7 +553,7 @@ const LOC_STRINGS = {
     'p_i_responses': {
         'EN': "You should place your fingers on the keys as shown below. The table showing which key to press for which response will remain visible during the practice runs.",
         'CZ': "Během tohoto úkolu prosíme umístěte prsty následovně: <kbd>f</kbd> = levý prostředníček, <kbd>g</kbd> = levý ukazováček, <kbd>j</kbd> = pravý ukazováček, <kbd>n</kbd> = pravý prostředníček):",
-        'HUN': "Miközben a feladatot csinálod kérünk, helyezd az ujjaid a következő módon: <kbd>f</kbd> = bal középső ujj, <kbd>g</kbd> = bal mutatóujj, <kbd>j</kbd> = jobb mutatóujj, <kbd>n</kbd> = jobb középső ujj"
+        'HUN': "Miközben a feladatot csinálod kérünk, helyezd az ujjaid a következő módon: <kbd>f</kbd> = bal középső ujj, <kbd>g</kbd> = bal mutatóujj, <kbd>j</kbd> = jobb középső ujj, <kbd>n</kbd> = jobb mutatóujj"
     },
     's_i_overview': {
         'EN': "In this experiment, we are interested in how people resolve conflicts in the processing of visual stimuli. During this experiment, you will see color words painted in different shades, as shown in the examples below.",
@@ -557,7 +577,7 @@ const LOC_IMG = {
     'f_keyboard': {
         'EN': "assets/flanker/Keyboard.jpg",
         'CZ': "assets/flanker/Keyboard_f_CZ.png",
-        'HUN': "assets/flanker/Keyboard_f_HUN.jpg"
+        'HUN': "assets/flanker/Keyboard_f_HUN.png"
     },
     'i_keyboard': {
         'EN': "assets/simon/Keyboard1.jpg",

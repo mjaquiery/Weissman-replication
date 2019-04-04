@@ -138,9 +138,9 @@
                 <p>S::p_i_responses</p>
                 <div class="response-table">
                     <div class="labels">
-                        <div>Response</div>
-                        <div>Stimulus</div>
-                        <div>Finger</div>
+                        <div>S::g_g_response</div>
+                        <div>S::g_g_stimulus</div>
+                        <div>S::g_g_finger</div>
                     </div>
                     <div>
                         <div><kbd>K::f</kbd></div>
@@ -153,14 +153,14 @@
                         <div>S::g_f_left_index</div>
                     </div>
                     <div>
-                        <div><kbd>K::j</kbd></div>
+                        <div><kbd>K::n</kbd></div>
                         <div>S::g_s_up</div>
-                        <div>S::g_f_right_middle</div>
+                        <div>S::g_f_right_index</div>
                     </div>
                     <div>
-                        <div><kbd>K::n</kbd></div>
+                        <div><kbd>K::j</kbd></div>
                         <div>S::g_s_down</div>
-                        <div>S::g_f_left_index</div>
+                        <div>S::g_f_right_middle</div>
                     </div>
                 </div>
                 <p>S::p_i_practice</p>
@@ -178,11 +178,11 @@
                     <div>I::f_keyboard</div>
                     <div class="response-table">
                         <div class="labels">
-                            <div>Response</div>
-                            <div>Finger</div>
+                            <div>S::g_g_response</div>
+                            <div>S::g_g_finger</div>
                         </div>
                         <div>
-                            <div><kbd>K::z</kbd></div>
+                            <div><kbd>K::c</kbd></div>
                             <div>S::g_f_left_middle</div>
                         </div>
                         <div>
@@ -190,12 +190,12 @@
                             <div>S::g_f_left_index</div>
                         </div>
                         <div>
-                            <div><kbd>K::m</kbd></div>
-                            <div>S::g_f_right_middle</div>
+                            <div><kbd>K::n</kbd></div>
+                            <div>S::g_f_right_index</div>
                         </div>
                         <div>
-                            <div><kbd>K::n</kbd></div>
-                            <div>S::g_f_left_index</div>
+                            <div><kbd>K::m</kbd></div>
+                            <div>S::g_f_right_middle</div>
                         </div>
                     </div>
                 </div>
@@ -232,16 +232,18 @@
         </div>
         <div id="Practice" class="instructions hidden">
             <h1>S::g_p_title</h1>
-            <div id="PracticeResponseMap"></div>
+            <div class="practice-response-map"></div>
             <button onclick="runExperiment()">S::g_g_practice</button>
         </div>
         <div id="BlockBreak" class="instructions hidden">
             <h1>S::g_g_block_end</h1>
             <p>S::g_g_block_break</p>
+            <div class="practice-response-map"></div>
             <button onclick="runTrial()">S::g_g_continue</button>
         </div>
         <div id="EndPractice" class="instructions hidden">
             <h1>S::g_p_end</h1>
+            <div class="practice-response-map"></div>
             <button onclick="runTrial()">S::g_g_continue</button>
         </div>
         <div id="Experiment" class="hidden">

@@ -20,7 +20,7 @@ const sharedCFG = {
             else
                 stimDiv.innerHTML = S('g_r_incorrect').toUpperCase();
 
-            stimDiv.innerHTML += "<br/>" + responseMapToHTML(X.responseMap);
+            stimDiv.innerHTML += "<br/>" + responseMapToHTML(X.responseMap, false);
             return X.cfg.trainingInterTrialInterval;
         }
 
@@ -160,7 +160,7 @@ const CFG = {
             if(CFG.flanker.stimuli.length === 0)
                 CFG.flanker.stimuli = ['g_s_M', 'g_s_S', 'g_s_T', 'g_s_H'];
             if(CFG.flanker.responseKeys.length === 0)
-                CFG.flanker.responseKeys = ['m', 'n', 'x', 'z'];
+                CFG.flanker.responseKeys = ['m', 'n', 'x', 'c'];
 
             // Flanker task uses randomised stimulus pairings
             let stim = shuffle(CFG.flanker.stimuli);
@@ -239,7 +239,7 @@ const CFG = {
             if(CFG.primeprobe.stimuli.length === 0)
                 CFG.primeprobe.stimuli = ['g_s_left', 'g_s_right', 'g_s_up', 'g_s_down'];
             if(CFG.primeprobe.responseKeys.length === 0)
-                CFG.primeprobe.responseKeys = ['f', 'g', 'n', 'm'];
+                CFG.primeprobe.responseKeys = ['f', 'g', 'n', 'j'];
 
             // primeprobe splits stimuli into left/right and up/down pairs
             // The stimulus-response bindings are constant
@@ -446,7 +446,7 @@ const CFG = {
                     'g_s_yellow'
                 ]);
             if(CFG.stroop.responseKeys.length === 0)
-                CFG.stroop.responseKeys = shuffle(['z', 'x', 'n', 'm']);
+                CFG.stroop.responseKeys = shuffle(['c', 'x', 'n', 'm']);
 
             let out = {};
             for(let i = 0; i < CFG.stroop.stimuliColours.length; i++)
