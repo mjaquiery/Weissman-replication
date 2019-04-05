@@ -87,12 +87,13 @@ function responseMapToHTML(m, fingerMap = true) {
 
     if(fingerMap) {
         let rows = [];
-        map.forEach((r) => rows.push(
-            "<div><div>" + r[0] +
-            "</div><div>" + r[1] +
-            "</div><div>" + r[2] +
-            "</div></div>"
-        ));
+        for(let r of map)
+            rows.push(
+                "<div><div>" + r[0] +
+                "</div><div>" + r[1] +
+                "</div><div>" + r[2] +
+                "</div></div>"
+            );
         out = "<div class='response-table'>" +
             "<div class='labels'>" +
             "<div>" + S('g_g_finger') + "</div>" +
@@ -101,7 +102,8 @@ function responseMapToHTML(m, fingerMap = true) {
             "</div>" + rows.join("") + "</div>";
     } else {
         let rows = [];
-        map.forEach((x) => rows.push(x[1] + " = " + x[2]));
+        for(let x of map)
+            rows.push(x[1] + " = " + x[2]);
         out = "<p class='response-map'>" + rows.join("; ") + "</p>";
     }
 
