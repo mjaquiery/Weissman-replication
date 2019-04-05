@@ -19,7 +19,7 @@ function checkConsent() {
 }
 
 function recordDemographics() {
-    if(event instanceof Event) // defined by browser
+    if(typeof event !== "undefined" && event instanceof Event) // defined by browser
         event.preventDefault();
     let nodes =
         document.querySelectorAll('#Demographics form select, #Demographics form input, #Demographics form textarea');
@@ -66,7 +66,7 @@ function setupExperiment() {
 function practiceInstructions() {
     // Show the practice dialogue
     showDiv('Practice');
-    document.querySelectorAll('.practice-response-map').forEach(elm => elm.innerHTML = responseMapToHTML(X.cfg.getResponseMap()));
+    document.querySelectorAll('.practice-response-map').forEach(elm => elm.innerHTML = responseMapToHTML(X.responseMap));
 }
 
 function runExperiment() {
@@ -77,7 +77,7 @@ function runExperiment() {
         countDown(1, document.querySelector('#Stimulus'), runTrial);
     else
         countDown(5, document.querySelector('#Stimulus'), runTrial,
-            responseMapToHTML(X.cfg.getResponseMap(), false));
+            responseMapToHTML(X.responseMap, false));
 }
 
 function runTrial() {

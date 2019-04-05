@@ -107,6 +107,7 @@ function responseMapToHTML(m, fingerMap = true) {
         out = "<p class='response-map'>" + rows.join("; ") + "</p>";
     }
 
+    console.log(m)
     return out;
 }
 
