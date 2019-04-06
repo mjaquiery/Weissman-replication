@@ -104,12 +104,15 @@ function saveResponse(e) {
         if(!X.responseOpen || e.target instanceof HTMLInputElement)
             return false;
 
-        // Don't listen to non-character keys
-        if((e.key < "a" || e.key > "z")
-            && e.key !== "ArrowUp"
-            && e.key !== "ArrowDown"
-            && e.key !== "ArrowLeft"
-            && e.key !== "ArrowRight")
+        // Don't listen to non-valid keys
+        let keyOkay = false;
+        for(let k of Object.keys(X.responseMap)) {
+            if(X.responseMap[k] === e.key) {
+                keyOkay = true;
+                break;
+            }
+        }
+        if(!keyOkay)
             return false;
     }
 
