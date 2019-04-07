@@ -107,7 +107,7 @@ function saveResponse(e) {
         // Don't listen to non-valid keys
         let keyOkay = false;
         for(let k of Object.keys(X.responseMap)) {
-            if(X.responseMap[k] === e.key) {
+            if(K(X.responseMap[k]) === e.key) {
                 keyOkay = true;
                 break;
             }
