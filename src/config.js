@@ -20,7 +20,7 @@ const sharedCFG = {
             else
                 stimDiv.innerHTML = S('g_r_incorrect').toUpperCase();
 
-            stimDiv.innerHTML += "<br/>" + responseMapToHTML(X.responseMap, false);
+            stimDiv.innerHTML += responseMapToHTML(X.responseMap, false);
             return X.cfg.trainingInterTrialInterval;
         }
 
@@ -217,7 +217,10 @@ const CFG = {
             setTimeout(CFG.flanker.hideStimulus, CFG.flanker.stimDuration, stimDiv);
         },
         hideStimulus: function(stimDiv) {
-            stimDiv.innerHTML = "";
+            stimDiv.classList.remove("flanker");
+            stimDiv.classList.add("feedback");
+            stimDiv.innerHTML = "<span class='fixation'>+</span>";
+            stimDiv.innerHTML += responseMapToHTML(X.responseMap, false);
             if(X.trialNum < X.trials.length)
                 X.trials[X.trialNum].stimOffset = now();
         },
@@ -422,6 +425,9 @@ const CFG = {
         },
         hideStimulus: function(stimDiv) {
             stimDiv.classList.remove("simon");
+            stimDiv.classList.add("feedback");
+            stimDiv.innerHTML = "<span class='fixation'>+</span>";
+            stimDiv.innerHTML += responseMapToHTML(X.responseMap, false);
             if(X.trialNum < X.trials.length)
                 X.trials[X.trialNum].stimOffset = now();
         },

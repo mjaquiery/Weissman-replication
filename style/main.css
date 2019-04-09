@@ -131,6 +131,13 @@ option[value="blank"] {
     width: 100%;
 }
 
+.response-map {
+    position: absolute;
+    width: 100%;
+    font-size: 36px;
+    letter-spacing: 1px;
+}
+
 .response-map * {
     vertical-align: middle;
 }
@@ -230,7 +237,8 @@ textarea {
 }
 
 /* Experiment stimuli styles */
-#Stimulus {
+#Stimulus,
+.fixation {
     font-size: 36px;
     font-family: arial, sans-serif;
     text-transform: uppercase;
