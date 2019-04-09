@@ -218,7 +218,7 @@ const CFG = {
         },
         hideStimulus: function(stimDiv) {
             stimDiv.classList.remove("flanker");
-            if(!X.trials[X.trialNum].isPractice) {
+            if(X.trials[X.trialNum].isPractice) {
                 stimDiv.classList.add("feedback");
                 stimDiv.innerHTML = "<span class='fixation'>+</span>";
                 stimDiv.innerHTML += responseMapToHTML(X.responseMap, false);
@@ -428,7 +428,7 @@ const CFG = {
         },
         hideStimulus: function(stimDiv) {
             stimDiv.classList.remove("simon");
-            if(!X.trials[X.trialNum].isPractice) {
+            if(X.trials[X.trialNum].isPractice) {
                 stimDiv.classList.add("feedback");
                 stimDiv.innerHTML = "<span class='fixation'>+</span>";
                 stimDiv.innerHTML += responseMapToHTML(X.responseMap, false);
