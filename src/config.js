@@ -222,7 +222,8 @@ const CFG = {
                 stimDiv.classList.add("feedback");
                 stimDiv.innerHTML = "<span class='fixation'>+</span>";
                 stimDiv.innerHTML += responseMapToHTML(X.responseMap, false);
-            }
+            } else
+                stimDiv.innerHTML = "";
             if(X.trialNum < X.trials.length)
                 X.trials[X.trialNum].stimOffset = now();
         },
@@ -431,7 +432,8 @@ const CFG = {
                 stimDiv.classList.add("feedback");
                 stimDiv.innerHTML = "<span class='fixation'>+</span>";
                 stimDiv.innerHTML += responseMapToHTML(X.responseMap, false);
-            }
+            } else
+                stimDiv.innerHTML = "";
             if(X.trialNum < X.trials.length)
                 X.trials[X.trialNum].stimOffset = now();
         },

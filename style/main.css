@@ -256,7 +256,10 @@ textarea {
     text-align: center;
 }
 
-#Stimulus.primeprobe, #Stimulus.flanker, #Stimulus.countdown, #Stimulus.feedback {
+#Stimulus.primeprobe, #Stimulus.flanker {
+    color: white;
+}
+#Stimulus.countdown, #Stimulus.feedback {
     color: #cccccc;
 }
 
