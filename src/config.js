@@ -218,9 +218,11 @@ const CFG = {
         },
         hideStimulus: function(stimDiv) {
             stimDiv.classList.remove("flanker");
-            stimDiv.classList.add("feedback");
-            stimDiv.innerHTML = "<span class='fixation'>+</span>";
-            stimDiv.innerHTML += responseMapToHTML(X.responseMap, false);
+            if(!X.trials[X.trialNum].isPractice) {
+                stimDiv.classList.add("feedback");
+                stimDiv.innerHTML = "<span class='fixation'>+</span>";
+                stimDiv.innerHTML += responseMapToHTML(X.responseMap, false);
+            }
             if(X.trialNum < X.trials.length)
                 X.trials[X.trialNum].stimOffset = now();
         },
@@ -425,9 +427,11 @@ const CFG = {
         },
         hideStimulus: function(stimDiv) {
             stimDiv.classList.remove("simon");
-            stimDiv.classList.add("feedback");
-            stimDiv.innerHTML = "<span class='fixation'>+</span>";
-            stimDiv.innerHTML += responseMapToHTML(X.responseMap, false);
+            if(!X.trials[X.trialNum].isPractice) {
+                stimDiv.classList.add("feedback");
+                stimDiv.innerHTML = "<span class='fixation'>+</span>";
+                stimDiv.innerHTML += responseMapToHTML(X.responseMap, false);
+            }
             if(X.trialNum < X.trials.length)
                 X.trials[X.trialNum].stimOffset = now();
         },
