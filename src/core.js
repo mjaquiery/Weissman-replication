@@ -28,6 +28,20 @@ function recordDemographics() {
             X.demographics[x.name] = x.value;
     });
     X.demographics.consentTime = X.consented;
+
+    // Payment info
+    let paymentNodes =
+        document.querySelectorAll('#Payment select, #Payment input, #Payment textarea');
+    paymentNodes.forEach((x)=>{
+        if(typeof x.name !== 'undefined')
+            X.payment[x.name] = x.value;
+    });
+
+    if(!X.payment.userId.length) {
+        document.querySelector("#DebriefUID").classList.add("bad");
+        return false;
+    }
+
     setupExperiment();
 }
 
@@ -163,13 +177,6 @@ function debrief() {
 }
 
 function recordDebriefResponse() {
-    // Payment info
-    let nodes =
-        document.querySelectorAll('#Payment select, #Payment input, #Payment textarea');
-    nodes.forEach((x)=>{
-        if(typeof x.name !== 'undefined')
-            X.payment[x.name] = x.value;
-    });
     let debriefQs = document.querySelectorAll("#Debrief textarea, #Debrief input, #Debrief select");
     debriefQs.forEach((elm)=> X.debrief[elm.id] = elm.value);
 

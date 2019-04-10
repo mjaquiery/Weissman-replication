@@ -222,7 +222,7 @@ const CFG = {
             stimDiv.innerHTML = "<span class='fixation'>+</span>";
             if(X.trials[X.trialNum].isPractice)
                 stimDiv.innerHTML += responseMapToHTML(X.responseMap, false);
-            
+
             if(X.trialNum < X.trials.length)
                 X.trials[X.trialNum].stimOffset = now();
         },
