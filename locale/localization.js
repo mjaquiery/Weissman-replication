@@ -130,12 +130,12 @@ const LOC_KEYS = {
 const LOC_STRINGS = {
     'g_c_title': {
         'EN': "Inform form:",
-        'CZ': "",
+        'CZ': "Prohlášení:",
         'HUN': "Tájékoztató nyilatkozat:"
     },
     'g_c_summary': {
         'EN': "<strong>summary of the study</strong>: text",
-        'CZ': "",
+        'CZ': "<strong>souhrn studie</strong>: Cílem výzkumu je replikovat předchozí experiment. Experiment zkoumá, jak lidé zpracovávají informace a rozhodují.",
         'HUN': "<strong>A vizsgálat célja</strong>: A kutatás célja egy korábbi kísérlet megismétlése. A kísérlet azt kutatja, hogyan dolgozod fel az információkat és hozol döntéseket."
     },
     'g_c_data': {
@@ -212,7 +212,7 @@ const LOC_STRINGS = {
     },
     'g_d_education': {
         'EN': "Highest level of education attained or in progress",
-        'CZ': "Nejvyšší dosažené vzdělání",
+        'CZ': "Nejvyšší dosažené vzdělání:",
         'HUN': "Legmagasabb végzettséged:"
     },
     'g_d_education_primary': {
